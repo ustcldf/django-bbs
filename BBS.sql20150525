@@ -1,0 +1,1128 @@
+-- MySQL dump 10.13  Distrib 5.5.43, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: BBS
+-- ------------------------------------------------------
+-- Server version	5.5.43-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `account_accuracy`
+--
+
+DROP TABLE IF EXISTS `account_accuracy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_accuracy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accou_content_type_id_5e7ebe8c3715123d_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_accuracy_user_id_605ac1d1860568e0_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_accuracy_user_id_605ac1d1860568e0_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accou_content_type_id_5e7ebe8c3715123d_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_accuracy`
+--
+
+LOCK TABLES `account_accuracy` WRITE;
+/*!40000 ALTER TABLE `account_accuracy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_accuracy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_answervote`
+--
+
+DROP TABLE IF EXISTS `account_answervote`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_answervote` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `agree` tinyint(1) NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accoun_content_type_id_64f7056ed04a8d4_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_answervote_user_id_7f6c9573a647ba31_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_answervote_user_id_7f6c9573a647ba31_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accoun_content_type_id_64f7056ed04a8d4_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_answervote`
+--
+
+LOCK TABLES `account_answervote` WRITE;
+/*!40000 ALTER TABLE `account_answervote` DISABLE KEYS */;
+INSERT INTO `account_answervote` VALUES (1,'2015-05-20 06:46:19',5,1,25,4),(2,'2015-05-21 03:41:43',4,1,25,2);
+/*!40000 ALTER TABLE `account_answervote` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_comment`
+--
+
+DROP TABLE IF EXISTS `account_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `body` longtext NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accou_content_type_id_5d7192732e2abaac_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_comment_user_id_726f193db75a294f_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_comment_user_id_726f193db75a294f_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accou_content_type_id_5d7192732e2abaac_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_comment`
+--
+
+LOCK TABLES `account_comment` WRITE;
+/*!40000 ALTER TABLE `account_comment` DISABLE KEYS */;
+INSERT INTO `account_comment` VALUES (1,'2015-05-20 05:23:35','你好！',1,25,1),(2,'2015-05-20 06:46:10','你好',5,25,4);
+/*!40000 ALTER TABLE `account_comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_favorite`
+--
+
+DROP TABLE IF EXISTS `account_favorite`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_favorite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accou_content_type_id_344ac4524bf669c8_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_favorite_user_id_38c792e6ed6c8e15_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_favorite_user_id_38c792e6ed6c8e15_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accou_content_type_id_344ac4524bf669c8_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_favorite`
+--
+
+LOCK TABLES `account_favorite` WRITE;
+/*!40000 ALTER TABLE `account_favorite` DISABLE KEYS */;
+INSERT INTO `account_favorite` VALUES (1,'2015-05-21 03:42:13',4,25,2);
+/*!40000 ALTER TABLE `account_favorite` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_focus`
+--
+
+DROP TABLE IF EXISTS `account_focus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_focus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accou_content_type_id_289c12cf10ee8fd5_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_focus_user_id_7b71f6611fab07b2_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_focus_user_id_7b71f6611fab07b2_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accou_content_type_id_289c12cf10ee8fd5_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_focus`
+--
+
+LOCK TABLES `account_focus` WRITE;
+/*!40000 ALTER TABLE `account_focus` DISABLE KEYS */;
+INSERT INTO `account_focus` VALUES (3,'2015-05-20 06:39:38',1,9,2),(4,'2015-05-20 06:39:39',4,9,2),(7,'2015-05-22 00:56:35',2,9,1),(9,'2015-05-22 00:56:39',3,9,1),(12,'2015-05-22 02:14:25',2,9,3),(13,'2015-05-22 02:14:27',1,9,3),(14,'2015-05-22 02:14:28',5,9,3),(15,'2015-05-22 02:14:29',6,9,3),(16,'2015-05-22 02:14:30',4,9,3),(17,'2015-05-22 02:14:47',4,9,1),(18,'2015-05-25 03:01:26',3,9,2),(19,'2015-05-25 03:01:27',6,9,2),(21,'2015-05-25 03:19:29',2,9,6),(22,'2015-05-25 03:19:30',3,9,6),(23,'2015-05-25 03:19:30',4,9,6),(24,'2015-05-25 03:19:31',5,9,6),(25,'2015-05-25 03:19:32',1,9,6);
+/*!40000 ALTER TABLE `account_focus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_history`
+--
+
+DROP TABLE IF EXISTS `account_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `ip` char(39) NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accou_content_type_id_63240a79566dc633_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_history_user_id_62b645c35213e10_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_history_user_id_62b645c35213e10_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accou_content_type_id_63240a79566dc633_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_history`
+--
+
+LOCK TABLES `account_history` WRITE;
+/*!40000 ALTER TABLE `account_history` DISABLE KEYS */;
+INSERT INTO `account_history` VALUES (1,'2015-05-20 01:52:15',3,'127.0.0.1',9,2),(2,'2015-05-20 03:43:48',1,'127.0.0.1',25,1),(3,'2015-05-20 06:38:42',3,'127.0.0.1',25,1),(4,'2015-05-20 06:45:10',5,'127.0.0.1',25,4),(5,'2015-05-20 07:04:20',1,'127.0.0.1',25,2),(6,'2015-05-20 07:18:53',4,'127.0.0.1',25,2),(7,'2015-05-20 10:06:26',5,'127.0.0.1',25,1),(8,'2015-05-20 10:25:41',4,'127.0.0.1',25,1),(9,'2015-05-20 10:25:46',6,'127.0.0.1',25,1),(10,'2015-05-21 01:22:10',4,'127.0.0.1',9,1),(11,'2015-05-21 03:54:56',1,'127.0.0.1',25,1),(12,'2015-05-21 06:38:00',7,'127.0.0.1',25,1),(13,'2015-05-21 09:02:31',8,'127.0.0.1',25,1),(14,'2015-05-21 09:55:11',10,'127.0.0.1',25,1),(15,'2015-05-21 10:20:55',3,'127.0.0.1',9,1),(16,'2015-05-22 02:08:59',1,'127.0.0.1',9,2),(17,'2015-05-22 02:14:15',5,'127.0.0.1',9,3),(18,'2015-05-22 02:14:19',6,'127.0.0.1',9,3),(19,'2015-05-22 03:14:51',2,'127.0.0.1',9,1),(20,'2015-05-22 10:33:46',8,'127.0.0.1',25,1),(21,'2015-05-25 01:07:10',8,'127.0.0.1',25,1),(22,'2015-05-25 01:57:16',2,'127.0.0.1',9,1),(23,'2015-05-25 01:57:27',1,'127.0.0.1',25,1),(24,'2015-05-25 01:57:35',2,'127.0.0.1',25,1),(25,'2015-05-25 01:57:40',6,'127.0.0.1',25,1),(26,'2015-05-25 01:57:43',9,'127.0.0.1',25,1),(27,'2015-05-25 02:35:29',1,'127.0.0.1',25,2),(28,'2015-05-25 03:01:22',1,'127.0.0.1',9,2),(29,'2015-05-25 03:08:20',4,'127.0.0.1',9,2),(30,'2015-05-25 03:11:22',3,'127.0.0.1',9,2);
+/*!40000 ALTER TABLE `account_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_invite`
+--
+
+DROP TABLE IF EXISTS `account_invite`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_invite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `recipient_id` int(11) NOT NULL,
+  `sender_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accoun_content_type_id_1d843a81f9434c3_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_invite_recipient_id_6760243d6f5ec6b9_fk_account_user_id` (`recipient_id`),
+  KEY `account_invite_sender_id_20e369d85ff945d2_fk_account_user_id` (`sender_id`),
+  CONSTRAINT `account_invite_recipient_id_6760243d6f5ec6b9_fk_account_user_id` FOREIGN KEY (`recipient_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `account_invite_sender_id_20e369d85ff945d2_fk_account_user_id` FOREIGN KEY (`sender_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accoun_content_type_id_1d843a81f9434c3_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_invite`
+--
+
+LOCK TABLES `account_invite` WRITE;
+/*!40000 ALTER TABLE `account_invite` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_invite` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_thank`
+--
+
+DROP TABLE IF EXISTS `account_thank`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_thank` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `object_id` int(10) unsigned NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `accou_content_type_id_4ae95a647dd23123_fk_django_content_type_id` (`content_type_id`),
+  KEY `account_thank_user_id_ece68f6ee66783a_fk_account_user_id` (`user_id`),
+  CONSTRAINT `account_thank_user_id_ece68f6ee66783a_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `accou_content_type_id_4ae95a647dd23123_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_thank`
+--
+
+LOCK TABLES `account_thank` WRITE;
+/*!40000 ALTER TABLE `account_thank` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_thank` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_user`
+--
+
+DROP TABLE IF EXISTS `account_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime NOT NULL,
+  `openid` int(11) DEFAULT NULL,
+  `avatar` varchar(100) NOT NULL,
+  `sex` varchar(10) NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `signature` longtext,
+  `qq` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_user`
+--
+
+LOCK TABLES `account_user` WRITE;
+/*!40000 ALTER TABLE `account_user` DISABLE KEYS */;
+INSERT INTO `account_user` VALUES (1,'pbkdf2_sha256$20000$M9fwqzNqquW8$xBhS13mWvt2W6HDiLpz4BPts1dliCcjbg3gC11uVHA0=','2015-05-25 03:14:28',1,'zhaoxu','','','xxx@xxx',1,1,'2015-05-20 01:40:46',3,'avatars/070b6890-8a03-4b7f-aa0f-a481a63c7335u=3384967798,3704146566&fm=21&gp=0.jpg','secrecy','2015-05-22','','2928807616'),(2,'pbkdf2_sha256$20000$wb5iTb7gZ8Vd$/H6h6EbuBFEyAhDJm8u5aVAB1HQM/w6E3YBVY0ot8RA=','2015-05-25 02:35:19',1,'nolan','','','',1,1,'2015-05-20 01:40:59',NULL,'avatars/fa61cf3e-716e-491a-b0be-76ae6195206du=2205791892,1328528914&fm=21&gp=0.jpg','secrecy',NULL,NULL,NULL),(3,'pbkdf2_sha256$20000$ZWaKWl592w8K$ZvxTRK/eW2DUEVHlfdr3jehoq+sSV5g1Yr19q0EeySE=','2015-05-22 02:13:48',1,'root','','','',1,1,'2015-05-20 01:41:21',NULL,'avatars/8b6db7b0-e6bd-45fe-b619-1fb909c87b01u=3007676105,4076844138&fm=21&gp=0.jpg','secrecy',NULL,NULL,NULL),(4,'pbkdf2_sha256$20000$GTV0qUKg6oIX$UPXdfRhUmH7XsMAbDOT9y+aR3iYHMSNGolbcRWjiQjE=','2015-05-22 02:13:29',1,'John','','','',1,1,'2015-05-20 01:42:39',NULL,'avatars/c23a16d5-3bd9-47b8-9c3f-5e6c092085c6u=2117727038,2641018931&fm=116&gp=0.jpg','secrecy',NULL,NULL,NULL),(5,'!jU2CIPJGoHI8I676mUYLobMSlxDitIWo6PydoGuR','2015-05-21 08:22:59',0,'casadmin','','','',0,1,'2015-05-21 08:14:20',4,'default.png','secrecy',NULL,NULL,NULL),(6,'!HiXoXlokySZgKS02uqGlp19FqpERPWKsQwba4XoI','2015-05-22 01:28:32',0,'zouyapeng','','','',0,1,'2015-05-22 00:44:16',2,'avatars/839285bf-3bf7-4cc5-9c98-048d6e1e83a0redhat.jpg','secrecy',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `account_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_user_groups`
+--
+
+DROP TABLE IF EXISTS `account_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_user_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`group_id`),
+  KEY `account_user_groups_group_id_7e3f3427343b79c9_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `account_user_groups_group_id_7e3f3427343b79c9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `account_user_groups_user_id_5725c4c6cf199e50_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_user_groups`
+--
+
+LOCK TABLES `account_user_groups` WRITE;
+/*!40000 ALTER TABLE `account_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `account_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `account_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_user_user_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`permission_id`),
+  KEY `account_use_permission_id_36ea4481f0568c18_fk_auth_permission_id` (`permission_id`),
+  CONSTRAINT `account_user_user_pe_user_id_60e77d65713de07e_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `account_use_permission_id_36ea4481f0568c18_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_user_user_permissions`
+--
+
+LOCK TABLES `account_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `account_user_user_permissions` DISABLE KEYS */;
+INSERT INTO `account_user_user_permissions` VALUES (1,1,19),(2,1,27),(3,1,29),(4,1,30),(5,1,31),(6,1,32),(7,1,33),(8,1,34),(9,1,35),(10,1,36),(11,1,37),(12,1,38),(13,1,39),(14,1,40),(15,1,41),(16,1,42),(17,1,43),(18,1,50),(19,1,53),(20,1,54),(21,1,59),(22,1,60),(23,1,61),(24,1,65),(25,1,66),(26,1,67),(27,1,74),(28,1,75),(29,1,80),(30,1,81),(31,1,82),(32,1,83),(33,1,84),(34,2,19),(35,2,27),(36,2,29),(37,2,30),(38,2,31),(39,2,32),(40,2,33),(41,2,34),(42,2,35),(43,2,36),(44,2,37),(45,2,38),(46,2,39),(47,2,40),(48,2,41),(49,2,42),(50,2,43),(51,2,50),(52,2,53),(53,2,54),(54,2,59),(55,2,60),(56,2,61),(57,2,65),(58,2,66),(59,2,67),(60,2,74),(61,2,75),(62,2,80),(63,2,81),(64,2,82),(65,2,83),(66,2,84),(67,3,19),(68,3,27),(69,3,29),(70,3,30),(71,3,31),(72,3,32),(73,3,33),(74,3,34),(75,3,35),(76,3,36),(77,3,37),(78,3,38),(79,3,39),(80,3,40),(81,3,41),(82,3,42),(83,3,43),(84,3,50),(85,3,53),(86,3,54),(87,3,59),(88,3,60),(89,3,61),(90,3,65),(91,3,66),(92,3,67),(93,3,74),(94,3,75),(95,3,80),(96,3,81),(97,3,82),(98,3,83),(99,3,84),(100,4,19),(101,4,27),(102,4,29),(103,4,30),(104,4,31),(105,4,32),(106,4,33),(107,4,34),(108,4,35),(109,4,36),(110,4,37),(111,4,38),(112,4,39),(113,4,40),(114,4,41),(115,4,42),(116,4,43),(117,4,50),(118,4,53),(119,4,54),(120,4,59),(121,4,60),(122,4,61),(123,4,65),(124,4,66),(125,4,67),(126,4,74),(127,4,75),(128,4,80),(129,4,81),(130,4,82),(131,4,83),(132,4,84),(133,5,19),(134,5,27),(135,5,29),(136,5,30),(137,5,31),(138,5,32),(139,5,33),(140,5,34),(141,5,35),(142,5,36),(143,5,37),(144,5,38),(145,5,39),(146,5,40),(147,5,41),(148,5,42),(149,5,43),(150,5,50),(151,5,53),(152,5,54),(153,5,59),(154,5,60),(155,5,61),(156,5,65),(157,5,66),(158,5,67),(159,5,74),(160,5,75),(161,5,80),(162,5,81),(163,5,82),(164,5,83),(165,5,84),(166,6,19),(167,6,27),(168,6,29),(169,6,30),(170,6,31),(171,6,32),(172,6,33),(173,6,34),(174,6,35),(175,6,36),(176,6,37),(177,6,38),(178,6,39),(179,6,40),(180,6,41),(181,6,42),(182,6,43),(183,6,50),(184,6,53),(185,6,54),(186,6,59),(187,6,60),(188,6,61),(189,6,65),(190,6,66),(191,6,67),(192,6,74),(193,6,75),(194,6,80),(195,6,81),(196,6,82),(197,6,83),(198,6,84);
+/*!40000 ALTER TABLE `account_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `article_article`
+--
+
+DROP TABLE IF EXISTS `article_article`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `body` longtext NOT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `kw` text,
+  `forum_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `article_article_19bc3ff1` (`forum_id`),
+  KEY `article_article_e8701ad4` (`user_id`),
+  CONSTRAINT `article_article_forum_id_42a45acf186ee3a6_fk_forum_forum_id` FOREIGN KEY (`forum_id`) REFERENCES `forum_forum` (`id`),
+  CONSTRAINT `article_article_user_id_31eb905f3ef0c0b_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article_article`
+--
+
+LOCK TABLES `article_article` WRITE;
+/*!40000 ALTER TABLE `article_article` DISABLE KEYS */;
+INSERT INTO `article_article` VALUES (1,'2015-05-20 03:43:33','TEST','Hello World!\r\n你好\r\nPython\r\nC++\r\nJava\r\n','2015-05-25 02:36:09','[\"TEST\"]',4,1),(2,'2015-05-20 03:51:55','TEST2','Java程序设计\r\n\r\n电子电路\r\n\r\n通信原理\r\n',NULL,'[\"TEST2\"]',5,1),(3,'2015-05-20 06:38:25','TEST3','This is 3rd Test.\r\n你好，这是第三个测试文章\r\n1+1=2\r\n\r\n**加粗文字**\r\n## 标题 ##\r\n*斜体文字*\r\n\r\n> 这是一行引用\r\n\r\n``print \"Hello World!\"``\r\n\r\n\r\n\r\n1. 第一行\r\n2. 第二行\r\n3. 第三行\r\n\r\n\r\n- 这里\r\n-  那里\r\n-  这儿\r\n-  那儿\r\n\r\n',NULL,'[\"TEST3\"]',8,1),(6,'2015-05-20 07:39:58','dsadasd','sadasdasd',NULL,'[\"dsadasd\"]',7,2),(7,'2015-05-21 04:52:10','zxczxczx','cxzczx',NULL,'[\"zxczxczx\"]',5,1),(8,'2015-05-21 09:02:09','hhfdhdf','gdfgdfgd','2015-05-21 09:02:40','[\"hhfdhdf\"]',5,1),(9,'2015-05-21 09:44:48','TEST4','嗯，这又是一个测试！',NULL,'[\"TEST4\"]',7,1);
+/*!40000 ALTER TABLE `article_article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `article_article_attachment`
+--
+
+DROP TABLE IF EXISTS `article_article_attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_article_attachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `attachment_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `article_id` (`article_id`,`attachment_id`),
+  KEY `arti_attachment_id_57f58dfc65c0783e_fk_attachments_attachment_id` (`attachment_id`),
+  CONSTRAINT `article_articl_article_id_5dea8681f25fe2e6_fk_article_article_id` FOREIGN KEY (`article_id`) REFERENCES `article_article` (`id`),
+  CONSTRAINT `arti_attachment_id_57f58dfc65c0783e_fk_attachments_attachment_id` FOREIGN KEY (`attachment_id`) REFERENCES `attachments_attachment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article_article_attachment`
+--
+
+LOCK TABLES `article_article_attachment` WRITE;
+/*!40000 ALTER TABLE `article_article_attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_article_attachment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `article_articletag`
+--
+
+DROP TABLE IF EXISTS `article_articletag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_articletag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `article_articletag_a00c1b00` (`article_id`),
+  KEY `article_articletag_76f094bc` (`tag_id`),
+  CONSTRAINT `article_articletag_tag_id_2308a513b2e6f120_fk_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tag_tag` (`id`),
+  CONSTRAINT `article_articl_article_id_3c40971e9beab516_fk_article_article_id` FOREIGN KEY (`article_id`) REFERENCES `article_article` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article_articletag`
+--
+
+LOCK TABLES `article_articletag` WRITE;
+/*!40000 ALTER TABLE `article_articletag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_articletag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `article_reply`
+--
+
+DROP TABLE IF EXISTS `article_reply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_reply` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `body` longtext NOT NULL,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `article_reply_article_id_414ecc309b085b7f_fk_article_article_id` (`article_id`),
+  KEY `article_reply_e8701ad4` (`user_id`),
+  CONSTRAINT `article_reply_article_id_414ecc309b085b7f_fk_article_article_id` FOREIGN KEY (`article_id`) REFERENCES `article_article` (`id`),
+  CONSTRAINT `article_reply_user_id_51b54ad2be191217_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article_reply`
+--
+
+LOCK TABLES `article_reply` WRITE;
+/*!40000 ALTER TABLE `article_reply` DISABLE KEYS */;
+INSERT INTO `article_reply` VALUES (1,'2015-05-20 05:23:59','你好，我是第一条评论。',1,1),(2,'2015-05-20 05:24:47','你好，我是第二条评论。带附件。\r\n[attachment]1[/attachment]\r\n',1,1),(6,'2015-05-21 06:59:23','测试',1,2),(7,'2015-05-21 09:02:35','cfgxcgfhcfg',8,1),(8,'2015-05-21 09:02:40','hghgch',8,1),(9,'2015-05-25 02:35:45','测试回复！',1,2),(10,'2015-05-25 02:36:09','又一条测试。',1,2);
+/*!40000 ALTER TABLE `article_reply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `article_reply_attachment`
+--
+
+DROP TABLE IF EXISTS `article_reply_attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_reply_attachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reply_id` int(11) NOT NULL,
+  `attachment_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `reply_id` (`reply_id`,`attachment_id`),
+  KEY `arti_attachment_id_75c47ee37fb3072a_fk_attachments_attachment_id` (`attachment_id`),
+  CONSTRAINT `article_reply_atta_reply_id_72a617cd7e5d7de6_fk_article_reply_id` FOREIGN KEY (`reply_id`) REFERENCES `article_reply` (`id`),
+  CONSTRAINT `arti_attachment_id_75c47ee37fb3072a_fk_attachments_attachment_id` FOREIGN KEY (`attachment_id`) REFERENCES `attachments_attachment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article_reply_attachment`
+--
+
+LOCK TABLES `article_reply_attachment` WRITE;
+/*!40000 ALTER TABLE `article_reply_attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_reply_attachment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `attachments_attachment`
+--
+
+DROP TABLE IF EXISTS `attachments_attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attachments_attachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_id` int(10) unsigned DEFAULT NULL,
+  `source_filename` varchar(255) DEFAULT NULL,
+  `target_filename` varchar(255) DEFAULT NULL,
+  `attachment_file` varchar(100) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `creator_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `attac_content_type_id_50de1c8b809b9d5c_fk_django_content_type_id` (`content_type_id`),
+  KEY `attachments_attac_creator_id_63d716bdaa012435_fk_account_user_id` (`creator_id`),
+  CONSTRAINT `attachments_attac_creator_id_63d716bdaa012435_fk_account_user_id` FOREIGN KEY (`creator_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `attac_content_type_id_50de1c8b809b9d5c_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attachments_attachment`
+--
+
+LOCK TABLES `attachments_attachment` WRITE;
+/*!40000 ALTER TABLE `attachments_attachment` DISABLE KEYS */;
+INSERT INTO `attachments_attachment` VALUES (1,2,'hehehe.jpg','089df836-21bb-4697-bb8e-559644059559.jpg','attachments/attachments_attachment/089df836-21bb-4697-bb8e-559644059559.jpg','2015-05-20 05:24:22','2015-05-20 05:24:22',27,1),(2,5,'40bOOOPICfd_202.jpg','3dc89b7c-4453-4291-a0fd-22a20d7a977f.jpg','attachments/attachments_attachment/3dc89b7c-4453-4291-a0fd-22a20d7a977f.jpg','2015-05-20 06:44:59','2015-05-20 06:44:59',25,4),(3,NULL,'Git_Cheat_Sheet.png','8b92531b-2613-4cd8-9816-12cacd67b4a6.png','attachments/attachments_attachment/8b92531b-2613-4cd8-9816-12cacd67b4a6.png','2015-05-22 01:28:13','2015-05-22 01:28:13',NULL,1);
+/*!40000 ALTER TABLE `attachments_attachment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id` (`group_id`,`permission_id`),
+  KEY `auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id` (`permission_id`),
+  CONSTRAINT `auth_group_permission_group_id_689710a9a73b7457_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
+  CONSTRAINT `auth__content_type_id_508cf46651277a81_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add permission',2,'add_permission'),(5,'Can change permission',2,'change_permission'),(6,'Can delete permission',2,'delete_permission'),(7,'Can add group',3,'add_group'),(8,'Can change group',3,'change_group'),(9,'Can delete group',3,'delete_group'),(10,'Can add content type',4,'add_contenttype'),(11,'Can change content type',4,'change_contenttype'),(12,'Can delete content type',4,'delete_contenttype'),(13,'Can add session',5,'add_session'),(14,'Can change session',5,'change_session'),(15,'Can delete session',5,'delete_session'),(16,'Can add notification',6,'add_notification'),(17,'Can change notification',6,'change_notification'),(18,'Can delete notification',6,'delete_notification'),(19,'Can add attachment',7,'add_attachment'),(20,'Can change attachment',7,'change_attachment'),(21,'Can delete attachment',7,'delete_attachment'),(22,'Can delete foreign attachments',7,'delete_foreign_attachments'),(23,'Can add 搜索',8,'add_search'),(24,'Can change 搜索',8,'change_search'),(25,'Can delete 搜索',8,'delete_search'),(26,'Can add 用户',9,'add_user'),(27,'Can change 用户',9,'change_user'),(28,'Can delete 用户',9,'delete_user'),(29,'Can add 用户关注',10,'add_focus'),(30,'Can change 用户关注',10,'change_focus'),(31,'Can delete 用户关注',10,'delete_focus'),(32,'Can add 用户收藏',11,'add_favorite'),(33,'Can change 用户收藏',11,'change_favorite'),(34,'Can delete 用户收藏',11,'delete_favorite'),(35,'Can add 用户感谢',12,'add_thank'),(36,'Can change 用户感谢',12,'change_thank'),(37,'Can delete 用户感谢',12,'delete_thank'),(38,'Can add 不是答案',13,'add_accuracy'),(39,'Can change 不是答案',13,'change_accuracy'),(40,'Can delete 不是答案',13,'delete_accuracy'),(41,'Can add 用户投票',14,'add_answervote'),(42,'Can change 用户投票',14,'change_answervote'),(43,'Can delete 用户投票',14,'delete_answervote'),(44,'Can add 记录',15,'add_history'),(45,'Can change 记录',15,'change_history'),(46,'Can delete 记录',15,'delete_history'),(47,'Can add 用户邀请',16,'add_invite'),(48,'Can change 用户邀请',16,'change_invite'),(49,'Can delete 用户邀请',16,'delete_invite'),(50,'Can add 评论',17,'add_comment'),(51,'Can change 评论',17,'change_comment'),(52,'Can delete 评论',17,'delete_comment'),(53,'Can add 问题',18,'add_question'),(54,'Can change 问题',18,'change_question'),(55,'Can delete 问题',18,'delete_question'),(56,'Can add question tag',19,'add_questiontag'),(57,'Can change question tag',19,'change_questiontag'),(58,'Can delete question tag',19,'delete_questiontag'),(59,'Can add question attachment',20,'add_questionattachment'),(60,'Can change question attachment',20,'change_questionattachment'),(61,'Can delete question attachment',20,'delete_questionattachment'),(62,'Can add 问题修改记录',21,'add_questionhistory'),(63,'Can change 问题修改记录',21,'change_questionhistory'),(64,'Can delete 问题修改记录',21,'delete_questionhistory'),(65,'Can add 回答',22,'add_answer'),(66,'Can change 回答',22,'change_answer'),(67,'Can delete 回答',22,'delete_answer'),(68,'Can add 区域',23,'add_district'),(69,'Can change 区域',23,'change_district'),(70,'Can delete 区域',23,'delete_district'),(71,'Can add 版块',24,'add_forum'),(72,'Can change 版块',24,'change_forum'),(73,'Can delete 版块',24,'delete_forum'),(74,'Can add 文章',25,'add_article'),(75,'Can change 文章',25,'change_article'),(76,'Can delete 文章',25,'delete_article'),(77,'Can add article tag',26,'add_articletag'),(78,'Can change article tag',26,'change_articletag'),(79,'Can delete article tag',26,'delete_articletag'),(80,'Can add 回复',27,'add_reply'),(81,'Can change 回复',27,'change_reply'),(82,'Can delete 回复',27,'delete_reply'),(83,'Can add 标签',28,'add_tag'),(84,'Can change 标签',28,'change_tag'),(85,'Can delete 标签',28,'delete_tag');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `district_district`
+--
+
+DROP TABLE IF EXISTS `district_district`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `district_district` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  `description` longtext NOT NULL,
+  `updated` datetime DEFAULT NULL,
+  `forum_count` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `district_district`
+--
+
+LOCK TABLES `district_district` WRITE;
+/*!40000 ALTER TABLE `district_district` DISABLE KEYS */;
+INSERT INTO `district_district` VALUES (1,'学术科技','Science and Technology','2015-05-20 02:09:06',0),(2,'信息社会','Information Society','2015-05-20 02:09:38',0),(3,'创意设想','Creative Idea','2015-05-20 02:10:02',0);
+/*!40000 ALTER TABLE `district_district` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `district_district_moderators`
+--
+
+DROP TABLE IF EXISTS `district_district_moderators`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `district_district_moderators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `district_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `district_id` (`district_id`,`user_id`),
+  KEY `district_district_mo_user_id_5074829f47d18fad_fk_account_user_id` (`user_id`),
+  CONSTRAINT `district_district_mo_user_id_5074829f47d18fad_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `district_di_district_id_53b33032278427a2_fk_district_district_id` FOREIGN KEY (`district_id`) REFERENCES `district_district` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `district_district_moderators`
+--
+
+LOCK TABLES `district_district_moderators` WRITE;
+/*!40000 ALTER TABLE `district_district_moderators` DISABLE KEYS */;
+INSERT INTO `district_district_moderators` VALUES (1,1,3),(2,2,3),(3,3,3);
+/*!40000 ALTER TABLE `district_district_moderators` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint(5) unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `djang_content_type_id_697914295151027a_fk_django_content_type_id` (`content_type_id`),
+  KEY `django_admin_log_user_id_52fdd58701c5f563_fk_account_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_user_id_52fdd58701c5f563_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `djang_content_type_id_697914295151027a_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2015-05-20 02:02:06','1','学术科技',1,'',24,4),(2,'2015-05-20 02:03:07','2','创意设想',1,'',24,4),(3,'2015-05-20 02:05:32','3','信息社会',1,'',24,4),(4,'2015-05-20 02:08:29','3','信息社会',3,'',24,1),(5,'2015-05-20 02:08:29','2','创意设想',3,'',24,1),(6,'2015-05-20 02:08:29','1','学术科技',3,'',24,1),(7,'2015-05-20 02:09:10','1','学术科技',1,'',23,1),(8,'2015-05-20 02:09:40','2','信息社会',1,'',23,1),(9,'2015-05-20 02:10:07','3','创意设想',1,'',23,1),(10,'2015-05-20 02:11:31','4','计算机科学',1,'',24,1),(11,'2015-05-20 02:15:16','5','信息与通信工程',1,'',24,1),(12,'2015-05-20 02:15:30','5','信息与通信工程',2,'Changed district.',24,1),(13,'2015-05-20 02:16:39','6','求职招聘',1,'',24,1),(14,'2015-05-20 02:18:03','7','UI设计',1,'',24,1),(15,'2015-05-20 06:13:27','8','数学',1,'',24,1),(16,'2015-05-20 06:13:44','9','物理',1,'',24,1),(17,'2015-05-22 00:35:40','5','数字信号处理',3,'',25,1),(18,'2015-05-22 00:35:40','4','电磁场与电磁波',3,'',25,1),(19,'2015-05-22 00:35:49','10','萨sdasd',3,'',25,1);
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_45f3b1d93ec8c61c_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (13,'account','accuracy'),(14,'account','answervote'),(17,'account','comment'),(11,'account','favorite'),(10,'account','focus'),(15,'account','history'),(16,'account','invite'),(12,'account','thank'),(9,'account','user'),(1,'admin','logentry'),(25,'article','article'),(26,'article','articletag'),(27,'article','reply'),(7,'attachments','attachment'),(3,'auth','group'),(2,'auth','permission'),(4,'contenttypes','contenttype'),(23,'district','district'),(24,'forum','forum'),(8,'home','search'),(6,'notifications','notification'),(22,'question','answer'),(18,'question','question'),(20,'question','questionattachment'),(21,'question','questionhistory'),(19,'question','questiontag'),(5,'sessions','session'),(28,'tag','tag');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_migrations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2015-05-20 01:37:12'),(2,'contenttypes','0002_remove_content_type_name','2015-05-20 01:37:12'),(3,'auth','0001_initial','2015-05-20 01:37:13'),(4,'auth','0002_alter_permission_name_max_length','2015-05-20 01:37:13'),(5,'auth','0003_alter_user_email_max_length','2015-05-20 01:37:13'),(6,'auth','0004_alter_user_username_opts','2015-05-20 01:37:13'),(7,'auth','0005_alter_user_last_login_null','2015-05-20 01:37:13'),(8,'auth','0006_require_contenttypes_0002','2015-05-20 01:37:13'),(9,'account','0001_initial','2015-05-20 01:37:15'),(10,'admin','0001_initial','2015-05-20 01:37:15'),(11,'tag','0001_initial','2015-05-20 01:37:15'),(12,'district','0001_initial','2015-05-20 01:37:15'),(13,'forum','0001_initial','2015-05-20 01:37:16'),(14,'attachments','0001_initial','2015-05-20 01:37:16'),(15,'article','0001_initial','2015-05-20 01:37:16'),(16,'article','0002_auto_20150520_0136','2015-05-20 01:37:18'),(17,'home','0001_initial','2015-05-20 01:37:18'),(18,'notifications','0001_initial','2015-05-20 01:37:19'),(19,'question','0001_initial','2015-05-20 01:37:21'),(20,'sessions','0001_initial','2015-05-20 01:37:21');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_de54fa62` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('4mx6qpvjpubai29f344sxyzbq7c5hqrn','ZWU2ZTY5Zjg3ZGMxZmNiMzdjZmI4MzE1MDM4ZGZjNDkzNzRlZDk1YTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2NjNjgxNmExYzc2NTk0MDg5ODM4OGI0OWQ4MmVmYTkzYjNiZjMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJhcHBzLmFjY291bnQuYmFja2VuZC5DYXNCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjUifQ==','2015-06-04 08:22:59'),('brbphhlf2osc49lf3k2ru4q7cweco0rt','ODE4NjE5MGJjZTAyMTc5M2U1ZmQ0ZTViYjViYTQ0ZWE1MGI4MjJmNDp7fQ==','2015-06-04 04:44:12'),('dfyb4e0m6ff6p8s44dfklj9omrfghn7k','NmIyYzNmYmYxYWM5ZjkxNDIyMjQ5YmViNTA3MWEwYmZjZTVmZWM5ZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjlkYzZmZWI0NDA2M2ViNzY0MzFlZjRiNmE0NDEzZGRiNjhmM2I2YjkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJhcHBzLmFjY291bnQuYmFja2VuZC5DYXNCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjYifQ==','2015-06-05 00:44:16'),('e96goxpodjpnjmrizrknbwuxg0e5idvx','ODE4NjE5MGJjZTAyMTc5M2U1ZmQ0ZTViYjViYTQ0ZWE1MGI4MjJmNDp7fQ==','2015-06-04 04:43:14'),('u0yizfmsnzr9b7ia2l74sewy67ceka64','NmIyYzNmYmYxYWM5ZjkxNDIyMjQ5YmViNTA3MWEwYmZjZTVmZWM5ZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjlkYzZmZWI0NDA2M2ViNzY0MzFlZjRiNmE0NDEzZGRiNjhmM2I2YjkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJhcHBzLmFjY291bnQuYmFja2VuZC5DYXNCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjYifQ==','2015-06-05 01:28:32'),('ulrf4vwcbczia798xqnul9dvgb7bh2e9','YWIzNDY3MDAzODNjNTMwMDY5MGZmZTIxMjc4NWU0ZGVkNTE2NDgwMTp7Il9zZXNzaW9uX2V4cGlyeSI6MCwiX2F1dGhfdXNlcl9oYXNoIjoiMGY1ODgzYjkzZTVjNDZmNzZjZWY0MjE3MTBjZTRjNGMyYjdmYjVmMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEifQ==','2015-06-04 06:59:41'),('v7g5sra8c7z1tpwfwopn9l5wxfr2y7ka','ODhiMGFjNzliNjMzYmQ3MDM3MWNiODI1MTFlNmVlMDdhN2FlMGQzNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjBmNTg4M2I5M2U1YzQ2Zjc2Y2VmNDIxNzEwY2U0YzRjMmI3ZmI1ZjIiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFwcHMuYWNjb3VudC5iYWNrZW5kLkNhc0JhY2tlbmQifQ==','2015-06-08 03:14:28');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `forum_forum`
+--
+
+DROP TABLE IF EXISTS `forum_forum`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `forum_forum` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `icon` varchar(100) NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `description` longtext NOT NULL,
+  `updated` datetime DEFAULT NULL,
+  `post_count` int(11) NOT NULL,
+  `topic_count` int(11) NOT NULL,
+  `district_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `forum_forum_district_id_1e253ad5922330d6_fk_district_district_id` (`district_id`),
+  CONSTRAINT `forum_forum_district_id_1e253ad5922330d6_fk_district_district_id` FOREIGN KEY (`district_id`) REFERENCES `district_district` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `forum_forum`
+--
+
+LOCK TABLES `forum_forum` WRITE;
+/*!40000 ALTER TABLE `forum_forum` DISABLE KEYS */;
+INSERT INTO `forum_forum` VALUES (4,'icons/1e6407a3-6ced-4df5-87c5-ae6649764197.jpg','计算机科学','Computer Science','2015-05-20 02:11:05',0,0,1),(5,'icons/da899b73-8926-4037-ae26-fb574f593dc5.jpg','信息与通信工程','Telecomunication Engineering',NULL,0,0,1),(6,'icons/674564f9-2ac1-4253-812c-5510d3a362c7.jpg','求职招聘','Job','2015-05-20 02:16:38',0,0,2),(7,'icons/8a9292d6-a6b3-4577-9bff-4471b46c222a.jpg','UI设计','前端开发','2015-05-20 02:18:01',0,0,3),(8,'icons/eaf291ef-fb16-4628-a589-4160434a4d65.jpg','数学','Math','2015-05-20 06:13:26',0,0,1),(9,'icons/0df8ea13-4f2b-4dce-a60e-9a3b124526e3.jpg','物理','',NULL,0,0,1);
+/*!40000 ALTER TABLE `forum_forum` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `forum_forum_moderators`
+--
+
+DROP TABLE IF EXISTS `forum_forum_moderators`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `forum_forum_moderators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `forum_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `forum_id` (`forum_id`,`user_id`),
+  KEY `forum_forum_moderato_user_id_24564aca0eb4bb43_fk_account_user_id` (`user_id`),
+  CONSTRAINT `forum_forum_moderato_forum_id_75cd9c1280eebf92_fk_forum_forum_id` FOREIGN KEY (`forum_id`) REFERENCES `forum_forum` (`id`),
+  CONSTRAINT `forum_forum_moderato_user_id_24564aca0eb4bb43_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `forum_forum_moderators`
+--
+
+LOCK TABLES `forum_forum_moderators` WRITE;
+/*!40000 ALTER TABLE `forum_forum_moderators` DISABLE KEYS */;
+INSERT INTO `forum_forum_moderators` VALUES (4,4,3),(6,5,3),(7,6,3),(8,7,3),(9,8,3);
+/*!40000 ALTER TABLE `forum_forum_moderators` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `home_search`
+--
+
+DROP TABLE IF EXISTS `home_search`;
+/*!50001 DROP VIEW IF EXISTS `home_search`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `home_search` (
+  `id` tinyint NOT NULL,
+  `object_id` tinyint NOT NULL,
+  `content_type_id` tinyint NOT NULL,
+  `title` tinyint NOT NULL,
+  `body` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `notifications_notification`
+--
+
+DROP TABLE IF EXISTS `notifications_notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notifications_notification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `level` varchar(20) NOT NULL,
+  `unread` tinyint(1) NOT NULL,
+  `actor_object_id` varchar(255) NOT NULL,
+  `verb` varchar(255) NOT NULL,
+  `description` longtext,
+  `target_object_id` varchar(255) DEFAULT NULL,
+  `action_object_object_id` varchar(255) DEFAULT NULL,
+  `timestamp` datetime NOT NULL,
+  `public` tinyint(1) NOT NULL,
+  `action_object_content_type_id` int(11) DEFAULT NULL,
+  `actor_content_type_id` int(11) NOT NULL,
+  `recipient_id` int(11) NOT NULL,
+  `target_content_type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `a603c55896034ce0b61dc31846547a3b` (`action_object_content_type_id`),
+  KEY `actor_content_type_id_789341f3be9a804_fk_django_content_type_id` (`actor_content_type_id`),
+  KEY `notifications_not_recipient_id_e37a787331a726_fk_account_user_id` (`recipient_id`),
+  KEY `D93b0b47f670a102d5c597f4ae2c0fa9` (`target_content_type_id`),
+  CONSTRAINT `a603c55896034ce0b61dc31846547a3b` FOREIGN KEY (`action_object_content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `actor_content_type_id_789341f3be9a804_fk_django_content_type_id` FOREIGN KEY (`actor_content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `D93b0b47f670a102d5c597f4ae2c0fa9` FOREIGN KEY (`target_content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `notifications_not_recipient_id_e37a787331a726_fk_account_user_id` FOREIGN KEY (`recipient_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notifications_notification`
+--
+
+LOCK TABLES `notifications_notification` WRITE;
+/*!40000 ALTER TABLE `notifications_notification` DISABLE KEYS */;
+INSERT INTO `notifications_notification` VALUES (1,'info',0,'1','你发起的文章[TEST]有新的回复','<p>你好，我是第一条评论。</p>',NULL,'1','2015-05-20 05:23:59',1,27,9,1,NULL),(2,'info',0,'1','你发起的文章[TEST]有新的回复','<p>你好，我是第二条评论。带附件。\n[attachment]1[/attachment]</p>',NULL,'2','2015-05-20 05:24:47',1,27,9,1,NULL),(3,'info',1,'1','你发起的文章[数字信号处理]有新的回复','<p>这是一个测试回复</p>',NULL,'3','2015-05-20 10:06:47',1,27,9,4,NULL),(4,'info',0,'1','你发起的文章[电磁场与电磁波]有新的回复','<p>测试回复</p>',NULL,'4','2015-05-21 03:41:58',1,27,9,2,NULL),(5,'info',0,'1','你发起的文章[电磁场与电磁波]有新的回复','<p>sadasd</p>',NULL,'5','2015-05-21 03:53:59',1,27,9,2,NULL),(6,'info',0,'1','你发起的文章[TEST]有新的回复','<p>测试</p>',NULL,'6','2015-05-21 06:59:24',1,27,9,1,NULL),(7,'info',0,'1','你发起的文章[hhfdhdf]有新的回复','<p>cfgxcgfhcfg</p>',NULL,'7','2015-05-21 09:02:35',1,27,9,1,NULL),(8,'info',0,'1','你发起的文章[hhfdhdf]有新的回复','<p>hghgch</p>',NULL,'8','2015-05-21 09:02:40',1,27,9,1,NULL),(9,'info',0,'1','你发起的文章[TEST]有新的回复','<p>测试回复！</p>',NULL,'9','2015-05-25 02:35:48',1,27,9,1,NULL),(10,'info',0,'1','你发起的文章[TEST]有新的回复','<p>又一条测试。</p>',NULL,'10','2015-05-25 02:36:09',1,27,9,1,NULL);
+/*!40000 ALTER TABLE `notifications_notification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `question_answer`
+--
+
+DROP TABLE IF EXISTS `question_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `question_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `body` longtext,
+  `created` datetime NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `question_answer_7aa0f6ee` (`question_id`),
+  KEY `question_answer_e8701ad4` (`user_id`),
+  CONSTRAINT `question_answer_user_id_5148ab2115a90f11_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `question_an_question_id_1a9f1e680a22dde4_fk_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `question_question` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `question_answer`
+--
+
+LOCK TABLES `question_answer` WRITE;
+/*!40000 ALTER TABLE `question_answer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_answer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `question_question`
+--
+
+DROP TABLE IF EXISTS `question_question`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `question_question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `body` longtext,
+  `kw` text NOT NULL,
+  `last_answer_date` datetime DEFAULT NULL,
+  `answer_count` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `question_question_e8701ad4` (`user_id`),
+  CONSTRAINT `question_question_user_id_3d8d19d6cd2b3595_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `question_question`
+--
+
+LOCK TABLES `question_question` WRITE;
+/*!40000 ALTER TABLE `question_question` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_question` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `question_questionattachment`
+--
+
+DROP TABLE IF EXISTS `question_questionattachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `question_questionattachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `attachment_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ques_attachment_id_1cbb160ccb2c3a50_fk_attachments_attachment_id` (`attachment_id`),
+  KEY `question_qu_question_id_49fc288515be62eb_fk_question_question_id` (`question_id`),
+  CONSTRAINT `question_qu_question_id_49fc288515be62eb_fk_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `question_question` (`id`),
+  CONSTRAINT `ques_attachment_id_1cbb160ccb2c3a50_fk_attachments_attachment_id` FOREIGN KEY (`attachment_id`) REFERENCES `attachments_attachment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `question_questionattachment`
+--
+
+LOCK TABLES `question_questionattachment` WRITE;
+/*!40000 ALTER TABLE `question_questionattachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_questionattachment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `question_questionhistory`
+--
+
+DROP TABLE IF EXISTS `question_questionhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `question_questionhistory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `qescription` longtext,
+  `old_value` longtext,
+  `new_value` longtext,
+  `question_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `question_qu_question_id_57733ede186692d9_fk_question_question_id` (`question_id`),
+  KEY `question_questionhis_user_id_5eee046d97a88406_fk_account_user_id` (`user_id`),
+  CONSTRAINT `question_questionhis_user_id_5eee046d97a88406_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`),
+  CONSTRAINT `question_qu_question_id_57733ede186692d9_fk_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `question_question` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `question_questionhistory`
+--
+
+LOCK TABLES `question_questionhistory` WRITE;
+/*!40000 ALTER TABLE `question_questionhistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_questionhistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `question_questiontag`
+--
+
+DROP TABLE IF EXISTS `question_questiontag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `question_questiontag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `question_ques_question_id_c28fd55baa3509_fk_question_question_id` (`question_id`),
+  KEY `question_questiontag_tag_id_756ddf6736689c4_fk_tag_tag_id` (`tag_id`),
+  CONSTRAINT `question_questiontag_tag_id_756ddf6736689c4_fk_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tag_tag` (`id`),
+  CONSTRAINT `question_ques_question_id_c28fd55baa3509_fk_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `question_question` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `question_questiontag`
+--
+
+LOCK TABLES `question_questiontag` WRITE;
+/*!40000 ALTER TABLE `question_questiontag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_questiontag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tag_tag`
+--
+
+DROP TABLE IF EXISTS `tag_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tag_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `avatar` varchar(100) NOT NULL,
+  `describe` longtext,
+  `update_date` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tag_tag_user_id_a5d674f3058da7_fk_account_user_id` (`user_id`),
+  CONSTRAINT `tag_tag_user_id_a5d674f3058da7_fk_account_user_id` FOREIGN KEY (`user_id`) REFERENCES `account_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tag_tag`
+--
+
+LOCK TABLES `tag_tag` WRITE;
+/*!40000 ALTER TABLE `tag_tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tag_tag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Final view structure for view `home_search`
+--
+
+/*!50001 DROP TABLE IF EXISTS `home_search`*/;
+/*!50001 DROP VIEW IF EXISTS `home_search`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `home_search` AS select (`django_content_type`.`id` or `article_article`.`id`) AS `id`,`article_article`.`id` AS `object_id`,`django_content_type`.`id` AS `content_type_id`,`article_article`.`title` AS `title`,`article_article`.`body` AS `body` from (`article_article` left join `django_content_type` on(((`django_content_type`.`model` = 'article') and (`django_content_type`.`app_label` = 'article')))) union select (`django_content_type`.`id` or `question_question`.`id`) AS `id`,`question_question`.`id` AS `object_id`,`django_content_type`.`id` AS `content_type_id`,`question_question`.`title` AS `title`,`question_question`.`body` AS `body` from (`question_question` left join `django_content_type` on(((`django_content_type`.`model` = 'question') and (`django_content_type`.`app_label` = 'question')))) union select (`django_content_type`.`id` or `tag_tag`.`id`) AS `id`,`tag_tag`.`id` AS `object_id`,`django_content_type`.`id` AS `content_type_id`,`tag_tag`.`title` AS `title`,`tag_tag`.`describe` AS `body` from (`tag_tag` left join `django_content_type` on(((`django_content_type`.`model` = 'tag') and (`django_content_type`.`app_label` = 'tag')))) union select (`django_content_type`.`id` or `account_user`.`id`) AS `id`,`account_user`.`id` AS `object_id`,`django_content_type`.`id` AS `content_type_id`,`account_user`.`username` AS `title`,`account_user`.`signature` AS `body` from (`account_user` left join `django_content_type` on(((`django_content_type`.`model` = 'user') and (`django_content_type`.`app_label` = 'account')))) union select (`django_content_type`.`id` or `article_reply`.`id`) AS `id`,`article_reply`.`id` AS `object_id`,`django_content_type`.`id` AS `content_type_id`,`article_reply`.`body` AS `body`,NULL AS `title` from (`article_reply` left join `django_content_type` on(((`django_content_type`.`model` = 'reply') and (`django_content_type`.`app_label` = 'article')))) union select (`django_content_type`.`id` or `question_answer`.`id`) AS `id`,`question_answer`.`id` AS `object_id`,`django_content_type`.`id` AS `content_type_id`,`question_answer`.`body` AS `body`,NULL AS `title` from (`question_answer` left join `django_content_type` on(((`django_content_type`.`model` = 'answer') and (`django_content_type`.`app_label` = 'question')))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-05-25 12:23:15
