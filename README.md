@@ -3,7 +3,7 @@ This is a BBS powered by Django1.8
 Deploy:
 If you have a totally new installed Ubuntu system(I used Ubuntu14.04 as server), You may do as follows to deploy this web application.
 
-*1.Copy sourcecode to "/home/xxx" or other dir convenient
+1.Copy sourcecode to "/home/xxx" or other dir convenient
 
 2.Update your system:
 sudo apt-get update
