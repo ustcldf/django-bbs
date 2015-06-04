@@ -18,7 +18,7 @@ sudo apt-get install mysql-server
 I set mysql root password z as example here(consistent with settings.py file)
 
 mysql -uroot -pz
- >>create database feedback default charset utf8;
+create database feedback default charset utf8;
 
 sudo apt-get install libmysqld-dev
 
