@@ -1,1 +1,0 @@
-This is a BBS powered by Django.

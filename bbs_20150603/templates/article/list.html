@@ -1,0 +1,123 @@
+{% extends 'layout.html' %}
+{% load home_tags %}
+{% load pagination_tags %}
+{% block title %}文章{% endblock %}
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/article.css"/>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{{ STATIC_URL }}bower_components/jquery-waypoints/lib/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/article.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content-wrap clearfix">
+    <div class="col-sm-12 col-md-9 article-list-body">
+        <div class="content-head clearfix">
+            {% if forum %}
+                <h5 class="pull-left"><i class="fa fa-list-ul"></i> {{ forum }} <small>{{ forum.description|summary:100 }}</small></h5>
+                <ul class="nav nav-tabs pull-right hidden-xs hidden-sm">
+                    <li {% ifequal request.GET.order_by '-created' %} class="active" {% endifequal %}>
+                        <a href="{% url 'article:list' %}?order_by=-created{% if forum %}&forum={{ forum.id }}{% endif %}">最新文章</a>
+                    </li>
+                    <li {% ifnotequal request.GET.order_by '-created' %} class="active" {% endifnotequal %}><a href="{% url 'article:list' %}{% if forum %}?forum={{ forum.id }}{% endif %}">最新回复</a></li>
+                </ul>
+            {% else %}
+                <h5 class="pull-left"><i class="fa fa-list-ul"></i>&nbsp; 所有文章</h5>
+            <ul class="nav nav-tabs pull-right hidden-xs hidden-sm">
+                <li {% ifequal request.GET.order_by '-created' %} class="active" {% endifequal %}>
+                    <a href="{% url 'article:list' %}?order_by=-created">最新文章</a>
+                </li>
+                <li {% ifnotequal request.GET.order_by '-created' %} class="active" {% endifnotequal %}><a href="{% url 'article:list' %}">最新回复</a></li>
+            </ul>
+            {% endif %}
+        </div>
+        <div class="article-list content-body">
+        <div class="horizontal-first-line"></div>
+            {% autopaginate article_list DEFAULT_PAGINATION.article %}
+            {% for article in article_list %}
+                <div>
+                    <table class="article-table">
+                        <tbody>
+                        <tr>
+                        <td>
+                            <a class="avatar hidden-xs" href="{% url "account:detail" article.user.username %}">
+                                <img class="img-body" src="{{ MEDIA_URL }}{{ article.user.avatar }}" alt="">
+                            </a>
+                        </td>
+                        <td width="10"></td>
+                        <td width="600px">
+                            <div class="title">
+                                <a href="{{ article.get_absolute_url }}">
+                                   {{ article.title }}
+                                </a>
+                            </div>
+                            <div class="info">
+                                <em><a href="{% url "account:detail" article.user.username %}">{{ article.user }}</a></em>
+                                <em>于 <span >{% wenda_time article.created  %}</span> 发表</em>
+                                <a  href="{% url 'article:list' %}?forum={{ article.forum.id }}">{{ article.forum }}</a>
+                                {% with reply=article.get_last_reply %}
+                                {% if reply %}
+                                <em>最后回复 <span >{% wenda_time reply.created  %}</span></em>
+                                {% endif %}
+                                {% endwith %}
+                                <em class="hidden-sm hidden-md hidden-lg">{{ article.reply_set.count }} 个回复</em>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <span  class="count-livid">回复<em class="ng-binding">{{ article.reply_set.count }}</em></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <span  class="count-livid">浏览<em class="ng-binding">{{ article|history }}</em></span>
+                            </div>
+                        </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="horizontal-line"></div>
+            {% endfor %}
+            <div class="text-center">
+                {% paginate %}
+            </div>
+        </div>
+    </div>
+    <div class="right-sidebar col-sm-12 col-md-3 hidden-xs hidden-sm" style="padding-left: 20px">
+        <div class="article-list-body">
+
+            {#        <ul class="forum_list list-group">#}
+            {#            <li class="list-group-item forum-li">#}
+            {#                <a href="{% url 'article:list' %}"><i class="fa fa-list-ul c_999"></i>所有文章</a>#}
+            {#            </li>#}
+            {#            {% for district in districts %}#}
+            {#            <li class="list-group-item forum-li">#}
+            {#                <a href="{% url 'forum:list' %}?district={{ district.id }}"><i class="fa fa-list-ul c_999"></i> {{ district }}</a>#}
+            {#            </li>#}
+            {#                <div>{{ district }}</div>#}
+            {#            {% endfor %}#}
+            {#        </ul>#}
+
+            <div class="wd-block forum-con">
+                <ul class="list-unstyled row" style="margin: 10px;">
+                    <li class="col-sm-6"><span class="num counter">{{ count2 }}</span><span class="text">今日文章数</span>
+                    </li>
+                    <li class="col-sm-6"><span class="num counter">{{ count4 }}</span><span class="text">今日回复数</span>
+                    </li>
+                    <li class="col-sm-6"><span class="num counter">{{ count3 }}</span><span class="text">昨日文章数</span>
+                    </li>
+                    <li class="col-sm-6"><span class="num counter">{{ count1 }}</span><span class="text">总文章数</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

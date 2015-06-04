@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/login.css"/>
+{% endblock %}
+{% block js %}
+     <script type="text/javascript" src="{{ STATIC_URL }}bower_components/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+     <script type="text/javascript" src="{{ STATIC_URL }}bower_components/bootstrapvalidator/dist/js/language/zh_CN.js"></script>
+    <script src="{{ STATIC_URL }}js/login-register.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="login">
+        <div class="login-screen">
+            <div class="login-icon">
+                <img src="{{ STATIC_URL }}/Flat-UI-master/dist/img/icons/svg/map.svg" style="border-radius: 6px"
+                     alt="Welcome to Feedback">
+                <h4>欢迎使用
+                    <small>呵呵一下</small>
+                </h4>
+            </div>
+            <div class="login-form">
+                <form method="post"
+                      action="
+                              {% url 'login_api' resource_name="user" api_name='account' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}"
+                      data-validator id="login_form">
+                    <div class="form-group">
+                        <input
+                                data-bv-notempty="true"
+                                data-bv-error="true"
+                                data-bv-notempty-message="用户名不能为空"
+                                type="text" name="username" class="form-control" id="id_username" placeholder="用户名">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password"
+                               data-bv-notempty="true"
+                               data-bv-notempty-message="密码不能为空"
+                               class="form-control" id="id_password" placeholder="密码">
+                        <label class="login-field-icon fui-lock" for="login-pass"></label>
+                  </div>
+                    <div class="form-group row">
+                        <div>
+                            {#                          <label><input name="remember_me" type="checkbox"/>记住我</label>#}
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">登陆</button>
+                            <a class="login-link" href="#">Lost your password?</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+    </div>
+    </div>
+
+{% endblock %}
