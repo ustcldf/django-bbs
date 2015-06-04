@@ -3,7 +3,7 @@ This is a BBS powered by Django1.8
 Deploy:
 If you have a totally new installed Ubuntu system(I used Ubuntu14.04 as server), You may do as follows to deploy this web application.
 
-1.Copy sourcecode to "/home/xxx" or other dir convenient
+*1.Copy sourcecode to "/home/xxx" or other dir convenient
 
 2.Update your system:
 sudo apt-get update
@@ -15,7 +15,7 @@ sudo apt-get install gcc g++
 4.You need mysql as database:
 sudo apt-get install mysql-server
 
-#I set mysql root password z as example here(consistent with settings.py file)
+I set mysql root password z as example here(consistent with settings.py file)
 
 mysql -uroot -pz
  >>create database feedback default charset utf8;
