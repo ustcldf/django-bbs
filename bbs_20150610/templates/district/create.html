@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+    {{ block.super }}
+     <link rel="stylesheet" href="{{ STATIC_URL }}css/setting.css"/>
+     <link rel="stylesheet" href="{{ STATIC_URL }}Flat-UI-master/dist/css/flat-ui.css">
+     <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/bootstrapvalidator/dist/css/bootstrapValidator.css">
+     <link rel="stylesheet" href="{{ STATIC_URL }}css/account.css">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{{ STATIC_URL }}bower_components/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+    <script src="{{ STATIC_URL }}js/setting.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content-wrap clearfix content-body">
+        <div class="wd-head clearfix">
+            <h3 class="pull-left"><i class="fa fa-cog"></i>创建</h3>
+            <ul class="nav nav-tabs pull-right ">
+                <li {% ifequal tag 'forum' %} class="active"{% endifequal %}><a href="{% url 'district:create' 'forum' %}">创建版块</a></li>
+                <li {% ifequal tag 'district' %} class="active"{% endifequal %}><a href="{% url 'district:create' 'district' %}">创建区域</a></li>
+            </ul>
+        </div>
+    {% block tab-content %}
+    {% endblock %}
+</div>
+{% endblock %}

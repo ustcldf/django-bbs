@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% load home_tags %}
+{% load pagination_tags %}
+{% block title %}版块{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/district.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}Flat-UI-master/dist/css/flat-ui.css">
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/district_home.js"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="content-wrap district-list clearfix">
+    <div>
+        {% if request.user.username == 'root' %}
+            {% if request.GET.edit == 'false' or not request.GET.edit %}<a class="btn btn-primary" href="?edit=true"><span class="fui-gear">编辑</span></a>{% endif %}
+            {% if request.GET.edit == 'true' %}<a class="btn btn-primary" href="?edit=false"><span class="fui-gear">返回</span></a>{% endif %}
+
+            {% if request.GET.edit == 'false' or not request.GET.edit %}<a class="btn btn-primary" href="{% url 'district:create' 'forum' %}"><span class="fui-gear">创建</span></a>{% endif %}
+        {% endif %}
+    </div>
+    {% autopaginate districts 4 %}
+    {% for district in districts %}
+            <div class="district-item">
+               <div class="panel-heading">
+                   <h3 class="panel-title">{{ district.name }}{% if request.GET.edit == 'true' %}<span><a class="btn" cmd="delDistrict" district_name="{{ district.name }}" district_id="{{ district.id }}"><span class="fui-cross-circle"></span></a></span>{% endif %}</h3>
+               </div>
+
+                <div class="panel-body">
+                    <div class="content-wrap  clearfix">
+
+                        {% for forum in forums %}
+                            {% if forum.district == district %}
+                                <div class="col-sm-3">
+                                    <div class="district-item">
+                                        {% if request.GET.edit == 'true' %}<span style="float:right;margin-right:16px;"><a class="btn" cmd="delForum" forum_name="{{ forum.name }}" forum_id="{{ forum.id }}"><span class="fui-cross-circle"></span></a></span>{% endif %}
+                                        <table>
+                                            <tr>
+                                            <td width="60px"><a href="{% url "article:list" %}?forum={{ forum.id }}"><img class="img-body" src="{{ MEDIA_URL }}{{ forum.icon }}" alt=""></a></td>
+                                            <td>
+                                                <div><a href="{% url "article:list" %}?forum={{ forum.id }}">{{ forum.name }}</a></div>
+                                                <div><i class="fa fa-file-word-o"></i> 帖子: {{ forum.article_set.count }}</div>
+                                            </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+    <div class="text-center">
+        {% paginate %}
+    </div>
+
+</div>
+
+
+{% endblock %}

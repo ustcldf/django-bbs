@@ -1,0 +1,72 @@
+{% extends 'district/create.html' %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}Flat-UI-master/dist/css/flat-ui.css">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}bower_components/bootstrap-daterangepicker/moment.js"></script>
+    <script src="{{ STATIC_URL }}bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="{{ STATIC_URL }}js/create_forum.js"></script>
+{% endblock %}
+
+{% block tab-content %}
+    <div class="wd-body">
+        <form class="form-horizontal"
+              method="post"
+              id="create_forum_form"
+              action="{% url 'api_dispatch_list' resource_name="forum" api_name='forum' %}"
+              data-validator>
+            <div class="headline headline-v1">
+                <h4>填写版块信息</h4>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-1">
+{#                    <div class="form-group">#}
+{#                        <label class="col-sm-3 control-label">图标:</label>#}
+{#                            <form method="post" enctype="multipart/form-data" action="{% url 'account:SettingUserAvatar' %}" >#}
+{#                                {% csrf_token %}#}
+{#                                <input id="uploadBaseSoft" type="file" name="uploadFile">#}
+{#                                <input type="submit" value="上传头像">#}
+{#                            </form>#}
+{#                    </div>#}
+                    <div class="form-group">
+                        <label for="id_old_password" class="col-sm-3 control-label">名称:</label>
+
+                        <div class="col-sm-9">
+                            <input id="" data-bv-notempty="true" class="" name="name" type=""/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">描述:</label>
+                        <textarea class="vLargeTextField col-sm-9" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">区域:</label>
+                        <select data-bv-notempty="true" name="district" class="col-sm-9">
+                            <option value="" selected>选择区域</option>
+                            {% for district in districts %}
+                                <option value="{% url 'api_dispatch_detail' pk=district.id resource_name="district" api_name='district' %}">{{ district.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+{#                    <div class="form-group">#}
+{#                        <label for="id_signature" class="col-sm-3 control-label">版主:</label>#}
+{#                        <select data-bv-notempty="true" name="forum" class="col-sm-9">#}
+{#                            <option value="" selected>选择版主</option>#}
+{#                            {% for user in users %}#}
+{#                                <option value="{% url 'api_dispatch_detail' pk=district.id resource_name="district" api_name='district' %}">{{ user.username }}</option>#}
+{#                            {% endfor %}#}
+{#                        </select>#}
+{#                    </div>#}
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-success">创建版块</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
