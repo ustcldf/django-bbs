@@ -1,6 +1,6 @@
 from ubuntu:14.04
 MAINTAINER Oscar <zhaoshuailong09@163.com>
-MAINTAINER Nolan Zhao <zhaoshuailong09@163.com>
+MAINTAINER Nolan Zhao <2928807616@qq.com>
 
 ENV DJANGO_BBS_VERSION 0.1.0
 
