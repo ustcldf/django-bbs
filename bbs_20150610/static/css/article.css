@@ -142,7 +142,6 @@
 
 .content-body{
     margin-top: 0px;
-    border: 2px solid #e6e6e6;
 }
 
 .title{
@@ -163,7 +162,7 @@
 
 .horizontal-line{
     width: auto;
-    height: 1px;
+    height: 0px;
     margin: 9px auto;
     padding: 0px;
     background-color: #e6e6e6;

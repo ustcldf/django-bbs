@@ -96,18 +96,34 @@ def CreateUser(request):
 
             if not username or not password:
                 response['error'] = '必要参数为空!'
-                return HttpResponse(json.dumps(response), content_type="application/json")
+                context = {
+                    'success': False,
+                    'msg': '必要参数为空!'
+                }
+
+                return render_to_response('account/register_result.html', context, RequestContext(request))
 
             if password_again != password:
                 response['error'] = '密码不一致!'
-                return HttpResponse(json.dumps(response), content_type="application/json")
+                context = {
+                    'success': False,
+                    'msg': '密码不一致!'
+                }
+
+                return render_to_response('account/register_result.html', context, RequestContext(request))
 
             #User
             filterResult = User.objects.filter(username=username)
 
             if len(filterResult) > 0:
                 response['error'] = '用户名已存在!'
-                return HttpResponse(json.dumps(response), content_type="application/json")
+                # return render_to_response('account/register_result.html')
+                context = {
+                    'success': False,
+                    'msg': '用户名已存在!'
+                }
+
+                return render_to_response('account/register_result.html', context, RequestContext(request))
 
 
 
@@ -116,7 +132,12 @@ def CreateUser(request):
             response["id"] = str(user_obj.id)
             response["success"] = True
             response["error"] = "执行成功!"
-            return HttpResponse(json.dumps(response), content_type="application/json")
+            context = {
+                'success': True,
+                'msg': '恭喜, 注册成功!'
+            }
+
+            return render_to_response('account/register_result.html', context, RequestContext(request))
         except Exception, e:
             response["error"] = "系统异常![%s]" % str(e)
             return HttpResponse(json.dumps(response), content_type="application/json")

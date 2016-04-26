@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div>
+        <div style="color: red; font-size: 20px;" class="text-center">{{ msg }}</div>
+        {% if not success %}
+            <div class="text-center"><a class="btn btn-primary" href="/account/register/">返回注册</a></div>
+        {% else %}
+            <div class="text-center"><a class="btn btn-primary" href="/account/login/">返回登录</a></div>
+        {% endif %}
+    </div>
+{% endblock %}

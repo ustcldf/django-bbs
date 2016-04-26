@@ -149,7 +149,7 @@ class FocusNode(template.Node):
                 if isinstance(obj, request.user.__class__)and obj == request.user:
                     kw['disabled'] = 'disabled'
             return "<button type=\"button\" {disabled} data-content_object='{resource_url}'  " \
-                   "class='btn btn-sm btn-success focus_tag {exists}'><span>{cancel}关注</span>  <em>|</em> <b class='count'>{count}</b></button>".format(
+                   "class='btn btn-sm btn-focus focus_tag {exists}'><span>{cancel}关注</span>  <em>|</em> <b class='count'>{count}</b></button>".format(
                 **kw)
         except Exception as e:
             print e

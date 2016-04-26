@@ -1,0 +1,139 @@
+
+[class^="fui-"],
+[class*="fui-"] {
+  font-family: 'Flat-UI-Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-nav {
+    float: left;
+    margin: -5px 36px;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+
+  src: url('../fonts/lato/lato-light.eot');
+  src: url('../fonts/lato/lato-light.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-light.woff') format('woff'), url('../fonts/lato/lato-light.ttf') format('truetype'), url('../fonts/lato/lato-light.svg#latolight') format('svg');
+  }
+
+
+.navbar {
+    border-radius: 2px;
+    height: 10px;
+}
+
+.navbar {
+    position: relative;
+    min-height: 40px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    margin: -6px -4px;
+}
+
+
+.fui-search:before {
+  content: "\e630";
+  }
+
+.input-group {
+    margin-top: -5px;
+}
+
+
+.user_focus_count{
+    margin-left: -33px;
+}
+
+.btn-focus{
+    background-color: #ffe;
+}
+
+.login-icon{
+    margin-left: 460px;
+    margin-bottom: 20px;
+}
+
+
+.login-form{
+    width: 260px;
+    margin-left: 400px;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+.text-center {
+    text-align: center;
+    margin-left: -100px;
+    margin-top: 120px;
+}
+
+.btn-launch{
+    margin-top: -14px;
+}
+
+.img-nav {
+    margin-top: -7px;
+}
+
+
+
+.img-rounded {
+  border-radius: 6px;
+  max-width: 80%;
+  }
+
+.img-nav {
+    border-radius: 6px;
+    width: 33px;
+    height: 33px;
+  }
+
+.img-body {
+    border-radius: 6px;
+    width: 45px;
+    height: 45px;
+  }
+
+.img-body-md {
+    border-radius: 6px;
+    width: 80px;
+    height: 80px;
+}
+
+.img-body-lg{
+    border-radius: 6px;
+    width: 120px;
+    height:120px;
+}
+
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.72222;
+  background-color: #fff;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  -webkit-transition: all .25s ease-in-out;
+          transition: all .25s ease-in-out;
+  }
+.img-comment {
+  margin: 24px 0;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.2;
+  }

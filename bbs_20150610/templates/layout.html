@@ -10,11 +10,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{% block title %}Welcome...{% endblock %}</title>
+    <title>{% block title %}BookInn读书社区{% endblock %}</title>
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/Font-Awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" href="{{ STATIC_URL }}Flat-UI-master/dist/css/flat-ui.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
     {% block style %}
     {% endblock %}
 </head>
@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="{% url 'home:home' %}" class="navbar-brand"></a>
+            <a href="{% url 'home:home' %}" class="navbar-brand">BookInn 读书社区</a>
         </div>
         <form class="navbar-form navbar-left" role="search" action="{% url 'home:search' %}">
             <div class="form-group">
@@ -48,7 +48,7 @@
             <ul class="ask pull-right list-inline hidden-xs" style="margin-top: 10px">
                 {% if request.user.is_authenticated %}
                     <li>
-                        <a class="btn btn-primary" href="/article/new/"><i class="fui-new"></i>发起</a>
+                        <a class="btn btn-primary btn-launch" href="/article/new/"><i class="fui-new"></i>发起</a>
                     </li>
                     <li>
                         <a href="{% url "account:detail" request.user.username %}"><img class="img-nav" src="{{ MEDIA_URL }}{{ request.user.avatar }}" alt=""></a>
@@ -120,11 +120,13 @@
 </div>
 
 <footer class="text-center">
-    Copyright © 2015
+    Copyright Nolan© 2015
+    <a href="https://github.com/NolanZhao/django-bbs">本站源码</a>
+    <a>参与贡献</a>
 </footer>
 
 <!-- JS Global Compulsory -->
-<script src="{{ STATIC_URL }}Flat-UI-master/dist/js/flat-ui.js"></script>
+{#<script src="{{ STATIC_URL }}Flat-UI-master/dist/js/flat-ui.js"></script>#}
 <script src="{{ STATIC_URL }}bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}bower_components/jquery-cookie/jquery.cookie.js"></script>
 <script src="{{ STATIC_URL }}bower_components/jquery-json/dist/jquery.json.min.js"></script>
