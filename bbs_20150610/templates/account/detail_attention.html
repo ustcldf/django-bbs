@@ -15,7 +15,7 @@
             <a href="{% url 'account:detail_tag' name 'attention'  %}?tab=users">关注的用户</a>
         </li>
         <li {% ifequal tab 'articles' %} class="active" {% endifequal %}>
-            <a href="{% url 'account:detail_tag' name 'attention' %}?tab=articles">关注的帖子</a>
+            <a href="{% url 'account:detail_tag' name 'attention' %}?tab=articles">关注的文章</a>
         </li>
     </ul>
     <div class="tab-content attention-content">
@@ -79,7 +79,7 @@
             {#                    <h4><a href="{{ item.user.get_absolute_url }}">{{ item.user.username }}</a></h4>#}
             {#                    <div>#}
             {#                        <i class="fa fa-question"></i> 发问:{{ item.user.question_set.count }}&nbsp;&nbsp;#}
-            {#                        <i class="fa fa-file-word-o"></i> 帖子:{{ item.user.article_set.count }}#}
+            {#                        <i class="fa fa-file-word-o"></i> 文章:{{ item.user.article_set.count }}#}
             {#                    </div>#}
             {#                </a>#}
             {#            </div>#}

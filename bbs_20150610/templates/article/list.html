@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% load home_tags %}
 {% load pagination_tags %}
-{% block title %}帖子{% endblock %}
+{% block title %}文章{% endblock %}
 {% block style %}
     {{ block.super }}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/article.css"/>
@@ -22,15 +22,15 @@
                 <h5 class="pull-left"><i class="fa fa-list-ul"></i> {{ forum }} <small>{{ forum.description|summary:100 }}</small></h5>
                 <ul class="nav nav-tabs pull-right hidden-xs hidden-sm">
                     <li {% ifequal request.GET.order_by '-created' %} class="active" {% endifequal %}>
-                        <a href="{% url 'article:list' %}?order_by=-created{% if forum %}&forum={{ forum.id }}{% endif %}">最新帖子</a>
+                        <a href="{% url 'article:list' %}?order_by=-created{% if forum %}&forum={{ forum.id }}{% endif %}">最新文章</a>
                     </li>
                     <li {% ifnotequal request.GET.order_by '-created' %} class="active" {% endifnotequal %}><a href="{% url 'article:list' %}{% if forum %}?forum={{ forum.id }}{% endif %}">最新回复</a></li>
                 </ul>
             {% else %}
-                <h5 class="pull-left"><i class="fa fa-list-ul"></i>&nbsp; 帖子</h5>
+                <h5 class="pull-left"><i class="fa fa-list-ul"></i>&nbsp; 文章</h5>
             <ul class="nav nav-tabs pull-right hidden-xs hidden-sm">
                 <li {% ifequal request.GET.order_by '-created' %} class="active" {% endifequal %}>
-                    <a href="{% url 'article:list' %}?order_by=-created">最新帖子</a>
+                    <a href="{% url 'article:list' %}?order_by=-created">最新文章</a>
                 </li>
                 <li {% ifnotequal request.GET.order_by '-created' %} class="active" {% endifnotequal %}><a href="{% url 'article:list' %}">最新回复</a></li>
             </ul>
@@ -94,7 +94,7 @@
 
             {#        <ul class="forum_list list-group">#}
             {#            <li class="list-group-item forum-li">#}
-            {#                <a href="{% url 'article:list' %}"><i class="fa fa-list-ul c_999"></i>所有帖子</a>#}
+            {#                <a href="{% url 'article:list' %}"><i class="fa fa-list-ul c_999"></i>所有文章</a>#}
             {#            </li>#}
             {#            {% for district in districts %}#}
             {#            <li class="list-group-item forum-li">#}
@@ -106,13 +106,13 @@
 
             <div class="wd-block forum-con">
                 <ul class="list-unstyled row" style="margin: 10px;">
-                    <li class="col-sm-6"><span class="num counter">{{ count2 }}</span><span class="text">今日帖子数</span>
+                    <li class="col-sm-6"><span class="num counter">{{ count2 }}</span><span class="text">今日文章数</span>
                     </li>
                     <li class="col-sm-6"><span class="num counter">{{ count4 }}</span><span class="text">今日回复数</span>
                     </li>
-                    <li class="col-sm-6"><span class="num counter">{{ count3 }}</span><span class="text">昨日帖子数</span>
+                    <li class="col-sm-6"><span class="num counter">{{ count3 }}</span><span class="text">昨日文章数</span>
                     </li>
-                    <li class="col-sm-6"><span class="num counter">{{ count1 }}</span><span class="text">总帖子数</span>
+                    <li class="col-sm-6"><span class="num counter">{{ count1 }}</span><span class="text">总文章数</span>
                     </li>
                 </ul>
             </div>

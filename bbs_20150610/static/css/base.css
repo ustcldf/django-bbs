@@ -84,10 +84,15 @@
     margin-top: -14px;
 }
 
+#mde-button-bar{
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+
 .img-nav {
     margin-top: -7px;
 }
-
 
 
 .img-rounded {
@@ -108,15 +113,21 @@
   }
 
 .img-body-md {
-    border-radius: 6px;
+    border-radius: 4px;
     width: 80px;
     height: 80px;
 }
 
 .img-body-lg{
-    border-radius: 6px;
-    width: 120px;
-    height:120px;
+    border-radius: 2px;
+    width: 200px;
+    height:200px;
+}
+
+.img-body-auto{
+    border-radius: 2px;
+    width: 42%;
+    height:42%;
 }
 
 .img-thumbnail {
@@ -137,3 +148,19 @@
   font-style: italic;
   line-height: 1.2;
   }
+
+#article_title{
+    margin-bottom: 20px;
+}
+
+.fileinput-button{
+    margin-top: 10px;
+}
+
+.btn-remark{
+    margin-top: 10px;
+}
+
+.attachment-action{
+    background: red;
+}

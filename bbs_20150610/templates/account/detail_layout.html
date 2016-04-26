@@ -39,7 +39,7 @@
             <span class="col-xs-3"><i class="fa fa-thumbs-o-up"></i> 赞同：<span class="counter">{{ vote_count }}</span></span>
             <span class="col-xs-3"><i class="fa fa-heart-o"></i> 感谢：<span class="counter">{{ thank_count }}</span></span>
                 {#            <span class="col-xs-3"><i class="fa fa-question"></i> 发问：<span class="counter">{{ question_count }}</span></span>#}
-                <span class="col-xs-3"><i class="fa fa-file-word-o"></i> 帖子：<span
+                <span class="col-xs-3"><i class="fa fa-file-word-o"></i> 文章：<span
                         class="counter">{{ article_count }}</span></span>
                 </div>
         </div>
@@ -53,7 +53,7 @@
 {#                    <a href="{% url 'account:detail_tag' name 'question'  %}">问题</a>#}
 {#                </li>#}
                 <li {% ifequal tag 'article' %} class="active" {% endifequal %}>
-                    <a href="{% url 'account:detail_tag' name 'article' %}">帖子</a>
+                    <a href="{% url 'account:detail_tag' name 'article' %}">文章</a>
                 </li>
 
                 <li {% ifequal tag 'answer' %} class="active" {% endifequal %}>

@@ -116,8 +116,11 @@ class ArticleNewView(generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         pk = self.kwargs.get('pk')
+        print self.kwargs
         if pk:
             if Article.objects.get(id=pk).user != request.user:
+                print "A:", Article.objects.get(id=pk).user
+                print "R:", request.user
                 return HttpResponse(status=401)
 
         return super(ArticleNewView, self).get(request, *args, **kwargs)

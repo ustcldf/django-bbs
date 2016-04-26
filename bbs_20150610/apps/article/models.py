@@ -48,6 +48,9 @@ class Article(models.Model):
 
     class Meta(object):
         verbose_name = verbose_name_plural = '文章'
+        ordering = ['-created']
+
+
 
     def __str__(self):
         return self.title

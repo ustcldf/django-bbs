@@ -187,13 +187,13 @@
                 <div class="margin-bottom-20 row">
                     <input type="hidden" value="{% url 'api_dispatch_detail' resource_name="article" pk=article.id api_name='article' %}" name="article"/>
                     <div class="col-xs-10">
-                          <span class="btn btn-sm btn-default fileinput-button">
+                          <span class="btn btn-primary fileinput-button">
                             <span>上传附件</span>
                             <input id="fileupload" type="file" name="file" multiple>
                         </span>
-                        <span>允许 : jpg,jpeg,png,gif,zip,doc,docx,rar,pdf,psd,tar.gz, 大小:10M</span>
+{#                        <span>允许 : jpg,jpeg,png,gif,zip,doc,docx,rar,pdf,psd,tar.gz, 大小:10M</span>#}
                     </div>
-                    <div class="col-xs-2 text-right"><button type="submit" class="btn btn- btn-success">回复</button></div>
+                    <div class="col-xs-2 text-right"><button type="submit" class="btn btn-primary btn-remark">回复</button></div>
                 </div>
 
                 <div class="margin-bottom-10"></div>

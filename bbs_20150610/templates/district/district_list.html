@@ -44,7 +44,7 @@
                                             <td width="60px"><a href="{% url "article:list" %}?forum={{ forum.id }}"><img class="img-body" src="{{ MEDIA_URL }}{{ forum.icon }}" alt=""></a></td>
                                             <td>
                                                 <div><a href="{% url "article:list" %}?forum={{ forum.id }}">{{ forum.name }}</a></div>
-                                                <div><i class="fa fa-file-word-o"></i> 帖子: {{ forum.article_set.count }}</div>
+                                                <div><i class="fa fa-file-word-o"></i> 文章: {{ forum.article_set.count }}</div>
                                             </td>
                                             </tr>
                                         </table>

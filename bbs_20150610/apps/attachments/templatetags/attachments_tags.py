@@ -140,7 +140,7 @@ def attachment_sequence(content):
             filename = os.path.basename(attr.attachment_file.name)
             if re.search(r'.*\.(png|jpg|jpeg|gif)$', filename):
                 # 图片
-                return "<img src='{scr}'>".format(scr=str(settings.MEDIA_URL+attr.attachment_file.name))
+                return "<img src='{scr}' class='img-body-auto'>".format(scr=str(settings.MEDIA_URL+attr.attachment_file.name))
             else:
                 return "<a href='{href}'><i class='fa fa-paperclip'></i>{filename}</a>".format(href=str(settings.MEDIA_URL+attr.attachment_file.name), filename=filename)
         except Exception as e:

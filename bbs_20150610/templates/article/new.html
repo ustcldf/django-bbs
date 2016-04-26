@@ -36,15 +36,15 @@
 
     <div class="content-wrap clearfix content-area">
         {#    <div class="wd-head clearfix">#}
-        {#        <h2 class="pull-left"><i class="fa fa-pencil-square-o"></i>发起帖子</h2>#}
+        {#        <h2 class="pull-left"><i class="fa fa-pencil-square-o"></i>发起文章</h2>#}
         {#    </div>#}
 
     <div class="wd-body wd-body-padding">
         <form id="form" method="{% if article %}PUT{% else %}POST{% endif %}"
               data-validator
               action="{% if article %}{% url 'api_dispatch_detail' pk=article.id resource_name="article" api_name='article' %}{% else %}{% url 'api_dispatch_list' resource_name="article" api_name='article' %}{% endif %}">
-            <div>
-                <label for="id_title">标题:</label>
+            <div id="article_title">
+                <div><label for="id_title">标题:</label></div>
                 <div class="row">
                     <div class="col-xs-6 form-group">
                         <input type="text"
@@ -87,11 +87,11 @@
                               id="id_body" rows="15" cols="50" name="body">{{ article.body|default:'' }}</textarea>
                 </div>
             </div>
-            <span class="btn btn-success fileinput-button">
+            <span class="btn btn-primary fileinput-button">
                 <span>上传附件</span>
                 <input id="fileupload" type="file" name="file" multiple>
             </span>
-            <span>允许 : jpg,jpeg,png,gif,zip,doc,docx,rar,pdf,psd,tar.gz, 大小:10M</span>
+{#            <span>允许 : jpg,jpeg,png,gif,zip,doc,docx,rar,pdf,psd,tar.gz, 大小:10M</span>#}
             <div class="margin-bottom-10"></div>
             <div class="row upload-files-preview" id="files">
                 {% if article %}
@@ -106,8 +106,8 @@
                             </div>
                             {{ attachment.source_filename }}
                             <div class="meta">
-                                <a class="install" data-id="{{ attachment.id }}" href="javascript:;">插入</a>
-                                <a class="del" data-id="{{ attachment.id }}" href="javascript:;">删除</a>
+                                <a class="install"  data-id="{{ attachment.id }}" href="javascript:;">插入</a>
+                                <a class="del"  data-id="{{ attachment.id }}" href="javascript:;">删除</a>
                                 <input type="hidden" name="attachment" value="{{ attachment.id }}">
                             </div>
                         </div>
@@ -127,7 +127,7 @@
 {#            </div>#}
 
             <div>
-                <button type="submit" class="btn btn-success">发起您的帖子</button>
+                <button type="submit" class="btn btn-primary">发起您的文章</button>
             </div>
         </form>
     </div>
