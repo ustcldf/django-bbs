@@ -89,6 +89,10 @@
     margin-bottom: 12px;
 }
 
+.badge{
+    background-color: indianred;
+}
+
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;

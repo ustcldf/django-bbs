@@ -77,7 +77,7 @@
 
                 {% if request.user.is_authenticated %}
                     <li class="dropdown">
-                        <a {% ifequal PATH.0 'notifications' %}class="active dropdown-toggle"{% endifequal %} href="#" data-toggle="dropdown">通知{% if notifications_unread_count %}<span class="navbar-new" id="notifications_unread">{{ notifications_unread_count }}</span>{% endif %} <b class="caret"></b></a>
+                        <a {% ifequal PATH.0 'notifications' %}class="active dropdown-toggle"{% endifequal %} href="#" data-toggle="dropdown">通知{% if notifications_unread_count %}<span class="navbar-new badge badge-important" id="notifications_unread">{{ notifications_unread_count }}</span>{% endif %} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             {% for notice in notifications_unread %}
                             <li>
