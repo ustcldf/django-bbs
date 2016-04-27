@@ -96,6 +96,9 @@
     color: cyan;
 }
 
+.navbar-inverse .navbar-nav > li > a {
+    color: aqua;
+}
 
 
 
