@@ -328,9 +328,19 @@ def SettingUserAvatar(request):
             dst_file.close()
             user.avatar = "avatars/" + fileName
             user.save()
-            return HttpResponse(json.dumps(response), content_type="application/json")
+            context = {
+                'avatar': True,
+                'msg': '头像设置成功!'
+            }
+
+            return render_to_response('account/avatar_result.html', context, RequestContext(request))
 
         except Exception, e:
             response["success"] = False
             response["error"] = unicode(e)
-            return HttpResponse(json.dumps(response), content_type="application/json")
+            context = {
+                'avatar': False,
+                'msg': '头像设置出错了...'
+            }
+
+            return render_to_response('account/avatar_result.html', context, RequestContext(request))
