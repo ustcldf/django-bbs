@@ -1,0 +1,16 @@
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/tag/models.py:13: RemovedInDjango19Warning: Model class apps.tag.models.Tag doesn't declare an explicit app_label and either isn't in an application in INSTALLED_APPS or else was imported before its application was loaded. This will no longer be supported in Django 1.9.
+  class Tag(models.Model):
+
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/notifications/models.py:4: RemovedInDjango19Warning: django.contrib.contenttypes.generic is deprecated and will be removed in Django 1.9. Its contents have been moved to the fields, forms, and admin submodules of django.contrib.contenttypes.
+  from django.contrib.contenttypes import generic
+
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/question/models.py:6: RemovedInDjango19Warning: The utilities in django.db.models.loading are deprecated in favor of the new application loading system.
+  from django.db.models.loading import get_model
+
+System check identified some issues:
+
+WARNINGS:
+?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_DIRS.
+article.Article.attachment: (fields.W340) null has no effect on ManyToManyField.
+Error: Another program is already listening on a port that one of our HTTP servers is configured to use.  Shut this program down first before starting supervisord.
+For help, use manage.py -h

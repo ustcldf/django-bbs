@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'apps.forum',
     'apps.article',
     'apps.tag',
+    'djsupervisor'
 )
 
 MIDDLEWARE_CLASSES = (
