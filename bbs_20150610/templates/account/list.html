@@ -20,7 +20,7 @@
             {% if request.GET.edit == 'true' %}<a class="btn btn-primary" href="?edit=false"><span class="fui-gear">返回</span></a>{% endif %}
         {% endif %}
         </div>
-        {% autopaginate object_list 12 %}
+        {% autopaginate object_list 30 %}
         {% for user in object_list %}
         <div class="col-sm-3">
             <div class="user-item">

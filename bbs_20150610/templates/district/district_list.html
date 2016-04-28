@@ -24,7 +24,7 @@
             {% if request.GET.edit == 'false' or not request.GET.edit %}<a class="btn btn-primary" href="{% url 'district:create' 'forum' %}"><span class="fui-gear">创建</span></a>{% endif %}
         {% endif %}
     </div>
-    {% autopaginate districts 4 %}
+    {% autopaginate districts 6 %}
     {% for district in districts %}
             <div class="district-item">
                <div class="panel-heading">

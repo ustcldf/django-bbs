@@ -8,6 +8,7 @@
 .user-list .user-item {
   background-color: #fff;
   padding: 10px;
+  margin-top: 10px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
 }
 .user-list .user-item hr {
