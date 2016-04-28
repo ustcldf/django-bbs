@@ -132,12 +132,10 @@
 }
 
 .article-list-body{
-  margin: 10px 0;
-  border-radius: 6px;
-  background-color: #fff;
-  padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 10px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #e2e2e2;
 }
 
 .content-body{
@@ -179,10 +177,12 @@
 }
 
 .count-livid{
-    background-color: #f4f4f4;
-    display: inline-block;
-    padding: 4px 14px 4px 14px;
-    border-radius: 12px;
+    width: 70px;
+    height: 33px;
+    margin: 1px;
+    background-color: antiquewhite;
+    display: block;
+    padding: 6px 10px 0px 14px;
 }
 
 .article-table{

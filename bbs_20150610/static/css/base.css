@@ -1,14 +1,5 @@
-
-[class^="fui-"],
-[class*="fui-"] {
-  font-family: 'Flat-UI-Icons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+    background-color: antiquewhite;
 }
 
 .navbar-nav {
@@ -27,15 +18,30 @@
 
 
 .navbar {
-    border-radius: 2px;
-    height: 10px;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #2e8bcc;
+    border: None;
+    padding-top: 5px;
 }
 
-.navbar {
-    position: relative;
-    min-height: 40px;
-    margin-bottom: 20px;
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px;
+    margin-top: -5px;
+    color: antiquewhite;
 }
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ccc;
+}
+
+.navbar-zx{
+    background-color: #2e8bcc;
+    border-color: #2e8bcc;
+}
+
+
 
 .btn{
     margin: -6px -4px;
@@ -56,18 +62,30 @@
 }
 
 .btn-focus{
-    background-color: #ffe;
+    background-color: #fff;
 }
 
+.btn-primary {
+    color: antiquewhite;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    border-radius: 0px;
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+
 .login-icon{
-    margin-left: 460px;
-    margin-bottom: 20px;
+    margin-left: 426px;
+    margin-bottom: 30px;
 }
 
 
 .login-form{
     width: 260px;
-    margin-left: 400px;
+    margin-left: 342px;
 }
 
 .form-group {
@@ -77,8 +95,22 @@
 .text-center {
     text-align: center;
     margin-left: -100px;
-    margin-top: 60px;
+    /*margin-top: 10px;*/
+    margin-left: 20px;
 }
+
+.login{
+    margin-bottom: 100px;
+}
+
+.form-control{
+    border: None;
+}
+
+.btn{
+    border-radius: 0px;
+}
+
 
 .btn-launch{
     margin-top: -14px;
@@ -91,17 +123,6 @@
 
 .badge{
     background-color: indianred;
-}
-
-
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
-    margin-top: -5px;
-    color: cyan;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-    color: aqua;
 }
 
 
