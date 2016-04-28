@@ -14,3 +14,80 @@ WARNINGS:
 article.Article.attachment: (fields.W340) null has no effect on ManyToManyField.
 Error: Another program is already listening on a port that one of our HTTP servers is configured to use.  Shut this program down first before starting supervisord.
 For help, use manage.py -h
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/tag/models.py:13: RemovedInDjango19Warning: Model class apps.tag.models.Tag doesn't declare an explicit app_label and either isn't in an application in INSTALLED_APPS or else was imported before its application was loaded. This will no longer be supported in Django 1.9.
+  class Tag(models.Model):
+
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/notifications/models.py:4: RemovedInDjango19Warning: django.contrib.contenttypes.generic is deprecated and will be removed in Django 1.9. Its contents have been moved to the fields, forms, and admin submodules of django.contrib.contenttypes.
+  from django.contrib.contenttypes import generic
+
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/question/models.py:6: RemovedInDjango19Warning: The utilities in django.db.models.loading are deprecated in favor of the new application loading system.
+  from django.db.models.loading import get_model
+
+System check identified some issues:
+
+WARNINGS:
+?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_DIRS.
+article.Article.attachment: (fields.W340) null has no effect on ManyToManyField.
+2016-04-28 21:53:06,050 INFO RPC interface 'supervisor' initialized
+2016-04-28 21:53:06,050 INFO supervisord started with pid 17578
+2016-04-28 21:53:07,055 INFO spawned: 'autoreload' with pid 17581
+2016-04-28 21:53:07,058 INFO spawned: 'webserver' with pid 17582
+2016-04-28 21:53:07,804 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/tag/models.py:13: RemovedInDjango19Warning: Model class apps.tag.models.Tag doesn't declare an explicit app_label and either isn't in an application in INSTALLED_APPS or else was imported before its application was loaded. This will no longer be supported in Django 1.9.
+  class Tag(models.Model):
+
+
+2016-04-28 21:53:07,835 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/notifications/models.py:4: RemovedInDjango19Warning: django.contrib.contenttypes.generic is deprecated and will be removed in Django 1.9. Its contents have been moved to the fields, forms, and admin submodules of django.contrib.contenttypes.
+  from django.contrib.contenttypes import generic
+
+
+2016-04-28 21:53:07,859 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/question/models.py:6: RemovedInDjango19Warning: The utilities in django.db.models.loading are deprecated in favor of the new application loading system.
+  from django.db.models.loading import get_model
+
+
+2016-04-28 21:53:07,892 DEBG 'autoreload' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/tag/models.py:13: RemovedInDjango19Warning: Model class apps.tag.models.Tag doesn't declare an explicit app_label and either isn't in an application in INSTALLED_APPS or else was imported before its application was loaded. This will no longer be supported in Django 1.9.
+  class Tag(models.Model):
+
+
+2016-04-28 21:53:07,917 DEBG 'autoreload' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/notifications/models.py:4: RemovedInDjango19Warning: django.contrib.contenttypes.generic is deprecated and will be removed in Django 1.9. Its contents have been moved to the fields, forms, and admin submodules of django.contrib.contenttypes.
+  from django.contrib.contenttypes import generic
+
+
+2016-04-28 21:53:07,938 DEBG 'autoreload' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/question/models.py:6: RemovedInDjango19Warning: The utilities in django.db.models.loading are deprecated in favor of the new application loading system.
+  from django.db.models.loading import get_model
+
+
+2016-04-28 21:53:08,802 DEBG 'webserver' stdout output:
+usage: manage.py runserver [-h] [--version] [-v {0,1,2,3}]
+                           [--settings SETTINGS] [--pythonpath PYTHONPATH]
+                           [--traceback] [--no-color] [--ipv6] [--nothreading]
+                           [--noreload] [--nostatic] [--insecure]
+                           [addrport]
+
+2016-04-28 21:53:08,802 INFO success: autoreload entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2016-04-28 21:53:08,802 INFO success: webserver entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2016-04-28 21:53:08,802 DEBG 'webserver' stdout output:
+manage.py runserver: error: unrecognized arguments: --daemonize --loggile /dev/null
+
+2016-04-28 21:53:08,900 DEBG fd 14 closed, stopped monitoring <POutputDispatcher at 4558130208 for <Subprocess at 4557873376 with name webserver in state RUNNING> (stdout)>
+2016-04-28 21:53:08,900 INFO exited: webserver (exit status 2; expected)
+2016-04-28 21:53:08,901 DEBG received SIGCHLD indicating a child quit
+2016-04-28 21:53:08,920 DEBG 'autoreload' stdout output:
+System check identified some issues:
+
+WARNINGS:
+?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_DIRS.
+article.Article.attachment: (fields.W340) null has no effect on ManyToManyField.
+
+2016-04-28 21:53:09,644 WARN received SIGINT indicating exit request
+2016-04-28 21:53:09,644 INFO waiting for autoreload to die
+2016-04-28 21:53:10,104 WARN received SIGINT indicating exit request
+2016-04-28 21:53:10,104 DEBG killing autoreload (pid 17581) with signal SIGTERM
+2016-04-28 21:53:10,115 DEBG fd 11 closed, stopped monitoring <POutputDispatcher at 4558129632 for <Subprocess at 4557873232 with name autoreload in state STOPPING> (stdout)>
+2016-04-28 21:53:10,115 INFO stopped: autoreload (terminated by SIGTERM)
+2016-04-28 21:53:10,115 DEBG received SIGCHLD indicating a child quit
