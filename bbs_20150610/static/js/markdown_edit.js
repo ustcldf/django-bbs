@@ -29,7 +29,7 @@ $(function(){
     $('#fileupload').fileupload({
         url: "/api/attachment/attachment/",
             maxFileSize: 10000000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|doc|docx|rar|pdf|psd)$/i,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|zip|doc|docx|rar|pdf|psd|txt|epub)$/i,
             dataType: 'json',
             messages: {
                 acceptFileTypes: '文件类型无效',

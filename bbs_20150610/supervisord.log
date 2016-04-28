@@ -1,0 +1,49 @@
+2016-04-29 04:34:30,769 INFO RPC interface 'supervisor' initialized
+2016-04-29 04:34:30,769 INFO supervisord started with pid 3665
+2016-04-29 04:34:31,778 INFO spawned: 'webserver' with pid 3668
+2016-04-29 04:34:32,324 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/tag/models.py:13: RemovedInDjango19Warning: Model class apps.tag.models.Tag doesn't declare an explicit app_label and either isn't in an application in INSTALLED_APPS or else was imported before its application was loaded. This will no longer be supported in Django 1.9.
+  class Tag(models.Model):
+
+
+2016-04-29 04:34:32,348 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/notifications/models.py:4: RemovedInDjango19Warning: django.contrib.contenttypes.generic is deprecated and will be removed in Django 1.9. Its contents have been moved to the fields, forms, and admin submodules of django.contrib.contenttypes.
+  from django.contrib.contenttypes import generic
+
+
+2016-04-29 04:34:32,370 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/question/models.py:6: RemovedInDjango19Warning: The utilities in django.db.models.loading are deprecated in favor of the new application loading system.
+  from django.db.models.loading import get_model
+
+
+2016-04-29 04:34:33,373 INFO success: webserver entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2016-04-29 04:34:33,795 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/tag/models.py:13: RemovedInDjango19Warning: Model class apps.tag.models.Tag doesn't declare an explicit app_label and either isn't in an application in INSTALLED_APPS or else was imported before its application was loaded. This will no longer be supported in Django 1.9.
+  class Tag(models.Model):
+
+
+2016-04-29 04:34:33,823 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/notifications/models.py:4: RemovedInDjango19Warning: django.contrib.contenttypes.generic is deprecated and will be removed in Django 1.9. Its contents have been moved to the fields, forms, and admin submodules of django.contrib.contenttypes.
+  from django.contrib.contenttypes import generic
+
+
+2016-04-29 04:34:33,850 DEBG 'webserver' stdout output:
+/Users/nolan/Github/Develop/django-bbs/bbs_20150610/apps/question/models.py:6: RemovedInDjango19Warning: The utilities in django.db.models.loading are deprecated in favor of the new application loading system.
+  from django.db.models.loading import get_model
+
+
+2016-04-29 04:34:34,775 DEBG 'webserver' stdout output:
+System check identified some issues:
+
+WARNINGS:
+?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_DIRS.
+article.Article.attachment: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 2 issues (0 silenced).
+
+2016-04-29 05:08:33,921 WARN received SIGINT indicating exit request
+2016-04-29 05:08:33,921 DEBG killing webserver (pid 3668) with signal SIGTERM
+2016-04-29 05:08:33,922 INFO waiting for webserver to die
+2016-04-29 05:08:33,930 DEBG fd 10 closed, stopped monitoring <POutputDispatcher at 4628475056 for <Subprocess at 4628272048 with name webserver in state STOPPING> (stdout)>
+2016-04-29 05:08:33,930 INFO stopped: webserver (terminated by SIGTERM)
+2016-04-29 05:08:33,930 DEBG received SIGCHLD indicating a child quit
