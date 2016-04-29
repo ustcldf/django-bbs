@@ -21,10 +21,7 @@ def attachment_upload(instance, filename):
         # print filename
         file_name = filename
         instance.target_filename = file_name
-        return 'attachments/%s/%s' % (
-            '%s_%s' % (instance._meta.app_label,
-                       instance._meta.object_name.lower()),
-            file_name)
+        return 'attachments/%s/%s' % ('%s_%s' % (instance._meta.app_label,instance._meta.object_name.lower()),file_name)
 
 
 class Attachment(models.Model):
