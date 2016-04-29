@@ -248,7 +248,7 @@
                 <p class="margin-bottom-5">{{article|focus_count }} 人关注该文章</p>
                 {% for u in article|focus_user %}
                 <a class="user_avatar" href="{{ u.user.get_absolute_url }}">
-                    <img class="img-rounded" src="{{ MEDIA_URL }}{{ u.user.avatar }}" alt=""></a>
+                    <img class="img-body" src="{{ MEDIA_URL }}{{ u.user.avatar }}" alt=""></a>
                 {% endfor %}
                 {% for tag in article.tag.all %}
                     <a class="tag-item" href="{{ tag.get_absolute_url }}"><i class="fa fa-tags"></i> {{ tag.title }}</a>
