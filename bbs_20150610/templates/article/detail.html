@@ -219,7 +219,7 @@
                      <a href="{{ article.user.get_absolute_url }}">
                     {{ article.user }}</a>
 {#                    <p>{{ article.user.signature | summary:20 }}</p>#}
-                    <p>{{ article.user.signature}}</p>
+                    {% if article.user.signature %}<p>{{ article.user.signature}}</p>{% endif %}
                 </dd>
             </dl>
         </div>
