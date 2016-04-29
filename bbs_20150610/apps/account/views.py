@@ -36,6 +36,10 @@ class HomeView(generic.ListView):
     model = User
     template_name = "account/list.html"
 
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['object_list'] = User.objects.all().order_by('-date_joined')
+        return context
 
 def getUserKey(request):
     user_name = request.GET['username']
