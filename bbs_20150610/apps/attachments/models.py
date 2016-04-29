@@ -17,7 +17,9 @@ class AttachmentManager(models.Manager):
 
 
 def attachment_upload(instance, filename):
-        file_name = str(uuid.uuid4()) + os.path.splitext(filename)[1]
+        # file_name = str(uuid.uuid4()) + os.path.splitext(filename)[1]
+        # print filename
+        file_name = filename
         instance.target_filename = file_name
         return 'attachments/%s/%s' % (
             '%s_%s' % (instance._meta.app_label,
